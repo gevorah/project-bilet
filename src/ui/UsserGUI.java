@@ -27,6 +27,9 @@ import model.User;
 public class UsserGUI {
 
 	@FXML
+	private Label nameUser;
+	  
+	@FXML
 	private BorderPane mainpanel;
 
 	@FXML
@@ -50,7 +53,7 @@ public class UsserGUI {
 		user = new User(new Image("file:"+"img\\default.jpeg"), "Gevorah");
 		user.setPlayer1(new Player(new Character(0, 0, new Image("file:"+"img\\default.jpeg"), 2, 5, 5, "Any")));
 		user.setPlayer2(new Player(new Character(0, 0, new Image("file:"+"img\\level1.png"), 2, 5, 5, "Any")));
-		gz = new GameZone(user,);
+		//gz = new GameZone(user,);
 	}
 	@FXML
 	public void loadGameZone(ActionEvent event) {
@@ -64,7 +67,7 @@ public class UsserGUI {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LevelsWindow.fxml"));
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
-
+		nameUser.setText(tfNick.getText());
 		mainpanel.getChildren().clear();
 		mainpanel.setCenter(registry);
 	}
@@ -121,7 +124,7 @@ public class UsserGUI {
 		if (!nickname.trim().equals("")) {
 			registry.addUser(avatar,nickname);
 
-			loadUserWindow(null);
+			loadLevels(null);
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
     		alert.setTitle(null);
