@@ -6,15 +6,22 @@ public class Registry {
 	
 	private User firtsUser;
 
-	
+	public User getFirtsUser() {
+		return firtsUser;
+	}
+
+	public void setFirtsUser(User firtsUser) {
+		this.firtsUser = firtsUser;
+	}
+
 	public Registry() {
 			
 		firtsUser=null;
 		
 	}
 
-	public void addUser(Image avatar, String nickname) {
-		User tmp = new User(avatar, nickname);
+	public void addUser(Image pic, String nickname) {
+		User tmp = new User(pic, nickname);
 
 		if (firtsUser == null) {
 			setFirtsUser(tmp);
@@ -25,13 +32,5 @@ public class Registry {
 			setFirtsUser(tmp);;
 			firtsUser = getFirtsUser();
 		}
-	}
-	
-	public User getFirtsUser() {
-		return firtsUser;
-	}
-	public void setFirtsUser(User firtsUser) {
-		this.firtsUser = firtsUser;
-	}
-
+}
 }

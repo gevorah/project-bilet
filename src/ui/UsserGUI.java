@@ -1,6 +1,5 @@
 package ui;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JFileChooser;
@@ -51,7 +50,7 @@ public class UsserGUI {
 	@FXML
 	public void registry(ActionEvent event) throws Exception {
 
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddProfileWindow.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProfileWindow.fxml"));
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
 
@@ -117,7 +116,6 @@ public class UsserGUI {
 			lmessage.setText("fill in all the data");
 =======
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("All images","jpg","jpeg","png");
-		choose.setAcceptAllFileFilterUsed(false);
 		choose.setFileFilter(filter);
 		int op = choose.showOpenDialog(null);
 		if(op==JFileChooser.APPROVE_OPTION) {
@@ -128,6 +126,7 @@ public class UsserGUI {
 
 	@FXML
 	void addUser(ActionEvent event) throws Exception {
+
 		Image avatar = ivAvatar.getImage();
 		String nickname = tfNick.getText();
 		

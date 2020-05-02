@@ -14,12 +14,16 @@ public class Main extends Application {
 	private UsserGUI usserGUI;
 
 	public Main() {
+
 		registry = new Registry();
 		usserGUI = new UsserGUI(registry);
+
 	}
 
 	public static void main(String[] args) {
+
 		launch(args);
+
 	}
 
 	@Override
