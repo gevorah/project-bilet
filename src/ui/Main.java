@@ -12,7 +12,8 @@ public class Main extends Application {
 
 	private Registry registry;
 	private UsserGUI usserGUI;
-
+	private Scene scene;
+	
 	public Main() {
 		registry = new Registry();
 		usserGUI = new UsserGUI(registry);
@@ -30,7 +31,7 @@ public class Main extends Application {
 		loader.setController(usserGUI);
 		Parent root = loader.load();
 
-		Scene scene = new Scene(root);
+		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.setTitle("Tech Suvery");
 		usserGUI.loadUserWindow(null);

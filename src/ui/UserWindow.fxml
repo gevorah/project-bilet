@@ -18,7 +18,7 @@
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="164.0" layoutY="367.0" mnemonicParsing="false" onAction="#loadGame" text="Resume Game" textFill="#030000">
+      <Button layoutX="164.0" layoutY="367.0" mnemonicParsing="false" onAction="#loadLevels" text="Resume Game" textFill="#030000">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>

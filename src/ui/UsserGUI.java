@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,7 +19,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import model.Character;
+import model.Player;
 import model.Registry;
+import model.User;
 
 public class UsserGUI {
 
@@ -36,10 +40,33 @@ public class UsserGUI {
 
 	@FXML
 	private Button bChooseAvatar;
-
+	
+	private GameZone gz;
+	private Registry registry;
+	private User user;
+	
+	public UsserGUI(Registry registry) {
+		this.registry = registry;
+		user = new User(new Image("file:"+"img\\default.jpeg"), "Gevorah");
+		user.setPlayer1(new Player(new Character(0, 0, new Image("file:"+"img\\default.jpeg"), 2, 5, 5, "Any")));
+		user.setPlayer2(new Player(new Character(0, 0, new Image("file:"+"img\\level1.png"), 2, 5, 5, "Any")));
+		gz = new GameZone(user,);
+	}
 	@FXML
-	public void loadGame(ActionEvent event) {
+	public void loadGameZone(ActionEvent event) {
+		gz.manager();
+		mainpanel.setCenter(gz.getCanvas());
+		gz.gameLoop();
+	}
+	
+	@FXML
+	public void loadLevels(ActionEvent event) throws Exception {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LevelsWindow.fxml"));
+		fxmlLoader.setController(this);
+		Parent registry = fxmlLoader.load();
 
+		mainpanel.getChildren().clear();
+		mainpanel.setCenter(registry);
 	}
 
 	@FXML
@@ -59,11 +86,7 @@ public class UsserGUI {
 
 	}
 
-	private Registry registry;
-
-	public UsserGUI(Registry registry2) {
-		registry = registry2;
-	}
+	
 
 	@FXML
 	public void loadUserWindow(ActionEvent event) throws Exception {
