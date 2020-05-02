@@ -10,14 +10,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-
+<<<<<<< HEAD
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
+import javafx.scene.control.TextField;
+=======
 import javafx.scene.control.Alert;
-
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-
+>>>>>>> 1a5deaef131a68c9953858ed4c44baf34c4df657
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -83,7 +86,7 @@ public class UsserGUI {
 	@FXML
     void chooseAvatar(ActionEvent event) {
 		JFileChooser choose = new JFileChooser();
-
+<<<<<<< HEAD
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("JPEG,PNG Image","jpeg","png");
 		choose.setFileFilter(filter);
 		int op = choose.showOpenDialog(null);
@@ -112,7 +115,7 @@ public class UsserGUI {
 		} else {
 
 			lmessage.setText("fill in all the data");
-
+=======
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("All images","jpg","jpeg","png");
 		choose.setAcceptAllFileFilterUsed(false);
 		choose.setFileFilter(filter);
@@ -121,8 +124,7 @@ public class UsserGUI {
 			Image avatar = new Image("file:"+choose.getSelectedFile().getAbsolutePath());
 			ivAvatar.setImage(avatar);
 		}
-	}
-	}
+    }
 
 	@FXML
 	void addUser(ActionEvent event) throws Exception {
@@ -138,7 +140,7 @@ public class UsserGUI {
     		alert.setTitle(null);
     		alert.setContentText("Please fill.");
     		alert.showAndWait();
-
+>>>>>>> 1a5deaef131a68c9953858ed4c44baf34c4df657
 		}
 	}
 }
