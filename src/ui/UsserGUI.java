@@ -94,7 +94,7 @@ public class UsserGUI {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LevelsWindow.fxml"));
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
-		nameUser.setText(tfNick.getText());
+		//nameUser.setText(tfNick.getText());
 		mainpanel.getChildren().clear();
 		mainpanel.setCenter(registry);
 	}
