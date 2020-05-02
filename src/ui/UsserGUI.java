@@ -6,6 +6,8 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,8 +16,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -46,7 +51,25 @@ public class UsserGUI {
 	
 	private GameZone gz;
 	private Registry registry;
-	private User user;
+	private User user;  
+	@FXML
+    private TableView<User> txScoreTV;
+
+    @FXML
+    private TableColumn<User, Long > tclScore;
+
+    @FXML
+    private TableColumn<User , String > tclName;
+
+    @FXML
+    void loadBack(ActionEvent event) {
+
+    }
+
+    @FXML
+    void loadViewProfile(ActionEvent event) {
+
+    }
 	
 	public UsserGUI(Registry registry) {
 		this.registry = registry;
@@ -82,10 +105,40 @@ public class UsserGUI {
 		mainpanel.getChildren().clear();
 		mainpanel.setCenter(registry);
 
+	
+	}
+	public void initialize() throws Exception {
+    	
+    	if (txScoreTV != null) {
+    		
+    		initializeScores();
+    	}
+    	
+    }
+	
+	public void initializeScores() {
+		ObservableList<User> observableList;
+    	observableList = FXCollections.observableArrayList(registry.getUsers());
+    	
+		txScoreTV.setItems(observableList);
+		tclName.setCellValueFactory(new PropertyValueFactory<User,String>("nickname"));
+		tclScore.setCellValueFactory(new PropertyValueFactory<User,Long>("score"));
+
 	}
 
 	@FXML
-	public void showScore(ActionEvent event) {
+	public void showScore(ActionEvent event) throws Exception {
+		
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ScoreWindow.fxml"));
+		
+		fxmlLoader.setController(this);
+		BorderPane scorePane = fxmlLoader.load();
+    	
+		mainpanel.getChildren().clear();
+    	mainpanel.setCenter(scorePane);
+    	
+		
+		
 
 	}
 
