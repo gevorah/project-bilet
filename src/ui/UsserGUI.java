@@ -32,6 +32,9 @@ import model.User;
 public class UsserGUI {
 
 	@FXML
+	private Label nameUser;
+	  
+	@FXML
 	private BorderPane mainpanel;
 
 	@FXML
@@ -87,7 +90,7 @@ public class UsserGUI {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LevelsWindow.fxml"));
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
-
+		nameUser.setText(tfNick.getText());
 		mainpanel.getChildren().clear();
 		mainpanel.setCenter(registry);
 	}
@@ -174,7 +177,7 @@ public class UsserGUI {
 		if (!nickname.trim().equals("")) {
 			registry.addUser(avatar,nickname);
 
-			loadUserWindow(null);
+			loadLevels(null);
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
     		alert.setTitle(null);
