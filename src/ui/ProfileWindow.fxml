@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<<<<<<< HEAD
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
@@ -14,10 +15,17 @@
          <font>
             <Font name="Tahoma Bold" size="14.0" />
          </font></Label>
+=======
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="163.0" layoutY="259.0" text="Nickname:" />
+>>>>>>> 1a5deaef131a68c9953858ed4c44baf34c4df657
       <TextField fx:id="tfNick" layoutX="288.0" layoutY="254.0" />
       <Label layoutX="156.0" layoutY="222.0" />
       <ImageView fx:id="ivAvatar" fitHeight="150.0" fitWidth="150.0" layoutX="229.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
          <image>
+<<<<<<< HEAD
             <Image url="@../../../../../Desktop/WhatsApp%20Image%202017-02-23%20at%201.58.25%20PM%20(1).jpeg" />
          </image>
       </ImageView>
@@ -38,5 +46,13 @@
             <Font name="Tahoma Bold" size="14.0" />
          </font>
       </Label>
+=======
+            <Image url="@../../img/default.jpeg" />
+         </image>
+      </ImageView>
+      <Button fx:id="bChooseAvatar" layoutX="229.0" layoutY="207.0" mnemonicParsing="false" onAction="#chooseAvatar" prefHeight="30.0" prefWidth="150.0" text="Choose avatar..." />
+      <Button layoutX="229.0" layoutY="323.0" mnemonicParsing="false" onAction="#addUser" text="Continue" />
+      <Button cancelButton="true" layoutX="317.0" layoutY="323.0" mnemonicParsing="false" onAction="#loadUserWindow" text="Cancel" />
+>>>>>>> 1a5deaef131a68c9953858ed4c44baf34c4df657
    </children>
 </Pane>
