@@ -62,12 +62,16 @@ public class UsserGUI {
     private TableColumn<User , String > tclName;
 
     @FXML
-    void loadBack(ActionEvent event) {
+    void loadBack(ActionEvent event) throws Exception {
+    	
+    	loadUserWindow(null);
 
     }
 
     @FXML
-    void loadViewProfile(ActionEvent event) {
+    void loadViewProfile(ActionEvent event) throws Exception {
+    	
+    	loadLevels(null);
 
     }
 	
