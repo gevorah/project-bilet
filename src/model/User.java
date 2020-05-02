@@ -4,23 +4,17 @@ import javafx.scene.image.Image;
 
 public class User {
 
-	private Image pic;
+	private Image avatar;
 	private String nickname;
 	private long score;
 	private User nextUser;
-	
-	public User(String nickname) {
-		this.pic = new Image("default.jpg");
+	public User(Image avatar, String nickname) {
+		this.avatar = avatar;
 		this.nickname = nickname;
 		this.score = 0;
 	}
-	public User(Image pic, String nickname) {
-		this.pic = pic;
-		this.nickname = nickname;
-		this.score = 0;
-	}
-	public Image getPic() {
-		return pic;
+	public Image getAvatar() {
+		return avatar;
 	}
 	public String getNickname() {
 		return nickname;
@@ -28,12 +22,16 @@ public class User {
 	public long getScore() {
 		return score;
 	}
-	public void setPic(Image pic) {
-		this.pic = pic;
+	public void setAvatar(Image avatar) {
+		this.avatar = avatar;
 	}
 	public User getNextUser() {
 		return nextUser;
 	}
+	public void setNextUser(User nextUser) {
+		this.nextUser = nextUser;
+	}
+	
 	
 
 	
