@@ -33,7 +33,7 @@ public class Main extends Application {
 
 		scene = new Scene(root);
 		stage.setScene(scene);
-		stage.setTitle("Tech Suvery");
+		stage.setTitle("Project Bilet");
 		usserGUI.loadUserWindow(null);
 		stage.show();
 
