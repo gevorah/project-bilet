@@ -62,32 +62,25 @@ public class UsserGUI {
 	private TableColumn<User, String> tclName;
 
 	@FXML
-	void loadBack(ActionEvent event) throws Exception {
-
-		loadUserWindow(null);
-
-	}
-
-	@FXML
 	void loadViewProfile(ActionEvent event) throws Exception {
 
-		loadLevels(null);
+		//loadLevels(null);
 
 	}
 
 	public UsserGUI(Registry registry) {
 		this.registry = registry;
-		user = new User(new Image("file:" + "img\\default.jpeg"), "Gevorah");
+		/**user = new User(new Image("file:" + "img\\default.jpeg"), "Gevorah");
 		user.setPlayer1(new Player(new Character(0, 0, new Image("file:" + "img\\default.jpeg"), 2, 5, 5, "Any")));
 		user.setPlayer2(new Player(new Character(0, 0, new Image("file:" + "img\\level1.png"), 2, 5, 5, "Any")));
-		// gz = new GameZone(user,);
+		gz = new GameZone(user,);*/
 	}
 
 	@FXML
 	public void loadGameZone(ActionEvent event) {
-		gz.manager();
+		/**gz.manager();
 		mainpanel.setCenter(gz.getCanvas());
-		gz.gameLoop();
+		gz.gameLoop();*/
 	}
 
 	@FXML
