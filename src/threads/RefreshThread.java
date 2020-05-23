@@ -22,14 +22,14 @@ public class RefreshThread extends Thread {
 			
 			
 			
-				for (int i = 0; i < 60; i++) {
+				
 					tablero.refresh();
-				}
+				
 				
 				
 		
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(0,1);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
