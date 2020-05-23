@@ -1,6 +1,8 @@
 package ui;
 
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -8,7 +10,7 @@ import javax.swing.JLabel;
 
 import model.PrincipalClass;
 
-public class Tablero extends JFrame {
+public class Tablero extends JFrame implements KeyListener {
 
 	/**
 	 * 
@@ -24,6 +26,8 @@ public class Tablero extends JFrame {
 		mapita = new JLabel[mundo.getMatrix().length][mundo.getMatrix()[0].length];
 
 		inicializarTablero();
+		
+		
 
 	}
 
@@ -101,6 +105,24 @@ public class Tablero extends JFrame {
 		
 		Tablero tab = new Tablero();
 		tab.show();
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		System.out.println(e.getKeyCode());
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 
