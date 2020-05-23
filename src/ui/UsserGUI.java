@@ -1,5 +1,6 @@
 package ui;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 
@@ -24,6 +25,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import model.Character;
 import model.Player;
 import model.Registry;
@@ -48,6 +50,15 @@ public class UsserGUI {
 
 	@FXML
 	private Button bChooseAvatar;
+	
+    @FXML
+    private Button butLevelOne2;
+
+    @FXML
+    private Button butLevelOne1;
+    
+    @FXML
+    private Pane paneLevels;
 
 	private GameZone gz;
 	private Registry registry;
@@ -85,12 +96,15 @@ public class UsserGUI {
 
 	@FXML
 	public void loadLevels(ActionEvent event) throws Exception {
+		
+		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LevelsWindow.fxml"));
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
 		// nameUser.setText(tfNick.getText());
 		mainpanel.getChildren().clear();
 		mainpanel.setCenter(registry);
+		
 	}
 
 	@FXML

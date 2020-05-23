@@ -148,4 +148,17 @@ public class PrincipalClass {
 		}
 	}
 	
+	public void fall() {
+		
+		if(jugador1.getPj().getX()+1 < matrix.length &&  matrix[jugador1.getPj().getX()+1][jugador1.getPj().getY()] != 1 &&  matrix[jugador1.getPj().getX()+1][jugador1.getPj().getY()] != 4 ) {
+			System.out.println();
+			
+			
+			
+		}
+		
+		
+		
+	}
+	
 }	
