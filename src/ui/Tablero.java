@@ -138,11 +138,11 @@ public class Tablero extends JFrame implements KeyListener {
 		
 		//arriba
 		case 38:
-			
+			mundo.moverArriba();
 			break;
 		// 	izquierda
 		case 37:
-			
+			mundo.moverIzquierda();
 			break;
 		
 		//derecha

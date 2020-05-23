@@ -106,23 +106,42 @@ public class PrincipalClass {
 	public void moverDerecha() {
 		
 		
-		if(jugador1.getPj().getX()+1 < matrix.length) {
-			
-			if(matrix[jugador1.getPj().getX()+1 ][jugador1.getPj().getY()] == 3) {
-				jugador1.getPj().setX(jugador1.getPj().getX()+1);
-				matrix[jugador1.getPj().getX()+1 ][jugador1.getPj().getY()] = 2;
+		if(jugador1.getPj().getY()+1 < matrix[0].length) {
+			System.out.println("llegó");
+			if(matrix[jugador1.getPj().getX()][jugador1.getPj().getY()+1] == 3) {
+				System.out.println("llegó2");
 				matrix[jugador1.getPj().getX()][jugador1.getPj().getY()] = 3;
+				matrix[jugador1.getPj().getX()][jugador1.getPj().getY()+1] = 2;
+				jugador1.getPj().setY(jugador1.getPj().getY()+1);
 			}
-			
 		}
 		
 		
 		
 	}
 	public void moverIzquierda() {
-		
-		// TODO Auto-generated method stub
-		
+
+		if(jugador1.getPj().getY()-1 > 0) {
+			System.out.println("llegó");
+			if(matrix[jugador1.getPj().getX()][jugador1.getPj().getY()-1] == 3) {
+				System.out.println("llegó2");
+				matrix[jugador1.getPj().getX()][jugador1.getPj().getY()] = 3;
+				matrix[jugador1.getPj().getX()][jugador1.getPj().getY()-1] = 2;
+				jugador1.getPj().setY(jugador1.getPj().getY()-1);
+			}
+		}
+	}
+
+	public void moverArriba() {
+		if(jugador1.getPj().getX()-3 > 0) {
+			System.out.println("llegó");
+			if(matrix[jugador1.getPj().getX()-3][jugador1.getPj().getY()] == 3) {
+				System.out.println("llegó2");
+				matrix[jugador1.getPj().getX()][jugador1.getPj().getY()] = 3;
+				matrix[jugador1.getPj().getX()-3][jugador1.getPj().getY()] = 2;
+				jugador1.getPj().setX(jugador1.getPj().getX()-3);
+			}
+		}
 	}
 	
-}
+}	
