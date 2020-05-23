@@ -12,6 +12,10 @@ public class Enemy1Thread extends Thread {
 	
 	public Enemy1Thread(PrincipalClass pC) {
 		principalClass = pC;
+
+		
+		setDaemon(true);
+
 	}
 	
 	public void run() {
