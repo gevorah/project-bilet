@@ -51,11 +51,7 @@ public class UsserGUI {
 	@FXML
 	private Button bChooseAvatar;
 	
-    @FXML
-    private Button butLevelOne2;
-
-    @FXML
-    private Button butLevelOne1;
+    
     
     @FXML
     private Pane paneLevels;

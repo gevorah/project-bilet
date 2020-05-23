@@ -82,7 +82,13 @@ public class Tablero extends JFrame implements KeyListener {
 						mapita[i][j].setIcon(new ImageIcon("img/puerta.png"));
 	
 						break;
-
+					case 6:
+							
+						mapita[i][j].setIcon(new ImageIcon("img/enemigo.png"));
+						
+						break;
+					
+						
 				}
 				
 				mapita[i][j].setSize(40,40);
@@ -126,7 +132,28 @@ public class Tablero extends JFrame implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
+		
+		switch(e.getKeyCode()) {
+		
+		
+		//arriba
+		case 38:
+			mundo.moverArriba();
+			break;
+		// 	izquierda
+		case 37:
+			mundo.moverIzquierda();
+			break;
+		
+		//derecha
+		case 39:
+			mundo.moverDerecha();
+			break;
+			
+		
+		
+			
+		}
 		
 	}
 
@@ -162,6 +189,7 @@ public class Tablero extends JFrame implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -202,6 +230,11 @@ public class Tablero extends JFrame implements KeyListener {
 	
 						mapita[i][j].setIcon(new ImageIcon("img/puerta.png"));
 	
+						break;
+						
+					case 6:
+						
+						mapita[i][j].setIcon(new ImageIcon("img/enemigo.png"));
 						break;
 
 				}

@@ -1,5 +1,6 @@
 package threads;
 
+
 import model.PrincipalClass;
 
 public class GravityThread extends Thread {
@@ -20,8 +21,14 @@ public class GravityThread extends Thread {
 		
 		while(true) {
 			
+			principalClass.fall();		
 			
-			
+			try {
+				Thread.sleep(190);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			
 		
