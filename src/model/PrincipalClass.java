@@ -13,6 +13,8 @@ public class PrincipalClass {
 	private int[][] matrix;
 
 	private String archiveR;
+	
+	private Player jugador1;
 
 	public PrincipalClass(String r) {
 
@@ -22,6 +24,8 @@ public class PrincipalClass {
 	}
 
 	public void loadMap() {
+		
+		
 
 		try {
 			br = new BufferedReader(new FileReader(new File(archiveR)));
@@ -61,11 +65,21 @@ public class PrincipalClass {
 		}
 		
 		for(int i = 0 ; i<matrix.length;i++) {
+			
+			
 			try {
 				line = br.readLine();
 				String[] fila = line.split(",");
 				
 				for(int j = 0 ; j < fila.length;j++) {
+					
+					int objeto = Integer.parseInt(fila[j]);
+					
+					if (objeto==2) {
+						
+						Character temp = new Character(i,j,null,0,0,0,"");
+						jugador1 = new Player(temp);
+					} 
 					
 					matrix[i][j] = Integer.parseInt(fila[j]);
 				
@@ -88,4 +102,27 @@ public class PrincipalClass {
 	public void setMatrix(int[][] matrix) {
 		this.matrix = matrix;
 	}
+
+	public void moverDerecha() {
+		
+		
+		if(jugador1.getPj().getX()+1 < matrix.length) {
+			
+			if(matrix[jugador1.getPj().getX()+1 ][jugador1.getPj().getY()] == 3) {
+				jugador1.getPj().setX(jugador1.getPj().getX()+1);
+				matrix[jugador1.getPj().getX()+1 ][jugador1.getPj().getY()] = 2;
+				matrix[jugador1.getPj().getX()][jugador1.getPj().getY()] = 3;
+			}
+			
+		}
+		
+		
+		
+	}
+	public void moverIzquierda() {
+		
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

@@ -16,4 +16,10 @@ public class Player {
 		if(GameZone.right) pj.setX(pj.getX()+pj.getSpeed());
 		if(GameZone.up) pj.setY(pj.getY()-pj.getJump());
 	}
+	public Character getPj() {
+		return pj;
+	}
+	public void setPj(Character pj) {
+		this.pj = pj;
+	}
 }

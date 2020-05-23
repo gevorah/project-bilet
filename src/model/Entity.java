@@ -3,7 +3,7 @@ package model;
 import javafx.scene.image.Image;
 
 public abstract class Entity {
-	private float x,y;
+	private int x,y;
 	private Image pj;
 	private int life;
 	/**
@@ -12,23 +12,23 @@ public abstract class Entity {
 	 * @param pj
 	 * @param life
 	 */
-	public Entity(float x, float y, Image pj, int life) {
+	public Entity(int x, int y, Image pj, int life) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.pj = pj;
 		this.life = life;
 	}
-	public float getX() {
+	public int getX() {
 		return x;
 	}
-	public void setX(float x) {
+	public void setX(int x) {
 		this.x = x;
 	}
-	public float getY() {
+	public int getY() {
 		return y;
 	}
-	public void setY(float y) {
+	public void setY(int y) {
 		this.y = y;
 	}
 	public Image getPj() {

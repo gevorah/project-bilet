@@ -6,7 +6,7 @@ public class Character extends Entity {
 	private int speed;
 	private int jump;
 	private String skill;
-	public Character(float x, float y, Image pj, int life, int speed, int jump, String skill) {
+	public Character(int x, int y, Image pj, int life, int speed, int jump, String skill) {
 		super(x,y,pj,life);
 		this.speed=speed;
 		this.jump=jump;
