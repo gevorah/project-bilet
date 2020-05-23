@@ -9,6 +9,7 @@
 
 <Pane fx:id="paneLevels" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="703.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+<<<<<<< HEAD
       <ImageView fitHeight="400.0" fitWidth="703.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/galaxy.png" />
@@ -30,6 +31,29 @@
       <Button layoutX="457.0" layoutY="33.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
       <Button layoutX="487.0" layoutY="307.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
       <Button layoutX="487.0" layoutY="183.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
+=======
+      <ImageView fitHeight="412.0" fitWidth="608.0" layoutX="-5.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/fondo.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ivLevel1" fitHeight="60.0" fitWidth="60.0" layoutX="73.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Desktop/level1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="bLevel1" layoutX="73.0" layoutY="170.0" mnemonicParsing="false" onAction="#loadGameZone" opacity="0.0" prefHeight="60.0" prefWidth="60.0" />
+      <Button fx:id="butLevelOne2" layoutX="163.0" layoutY="260.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
+      <Button fx:id="butLevelOne1" layoutX="163.0" layoutY="80.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
+      <Button layoutX="253.0" layoutY="320.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
+      <Button layoutX="253.0" layoutY="200.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
+      <Button layoutX="253.0" layoutY="20.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
+      <Button layoutX="343.0" layoutY="260.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
+      <Button layoutX="343.0" layoutY="80.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
+      <Button layoutX="433.0" layoutY="20.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
+      <Button layoutX="433.0" layoutY="320.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
+      <Button layoutX="433.0" layoutY="140.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" />
+>>>>>>> 8ffab66871305b2904b93e5dd5fe8fe960073ec7
       <Label fx:id="nameUser" layoutX="45.0" layoutY="33.0">
          <font>
             <Font name="Tahoma Bold" size="14.0" />

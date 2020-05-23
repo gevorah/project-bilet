@@ -1,5 +1,6 @@
 package threads;
 
+<<<<<<< HEAD
 import model.PrincipalClass;
 
 public class GravityThread extends Thread {
@@ -36,4 +37,8 @@ public class GravityThread extends Thread {
 	
 	
 	
+=======
+public class GravityThread extends Thread {
+
+>>>>>>> 8ffab66871305b2904b93e5dd5fe8fe960073ec7
 }
