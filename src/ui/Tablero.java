@@ -150,8 +150,9 @@ public class Tablero extends JFrame implements KeyListener {
 			mundo.moverDerecha();
 			break;
 			
+
 		
-		
+
 			
 		}
 		

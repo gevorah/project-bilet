@@ -32,6 +32,7 @@ public class PrincipalClass {
 		
 		gThread.start();
 		
+
 		eThread = new Enemy1Thread(this);
 		
 		eThread.start();
@@ -197,12 +198,15 @@ public class PrincipalClass {
 			if(matrix[jugador1.getPj().getX()+1][jugador1.getPj().getY()] == 1
 			||matrix[jugador1.getPj().getX()+1][jugador1.getPj().getY()] == 4) {
 				jugador1.getPj().setJump(0);
+
 			}
 		}
 		
 		
 		
 	}
+	
+	
 	
 	public void moverEnemigoDerecha() {
 		

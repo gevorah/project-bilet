@@ -1,5 +1,6 @@
 package threads;
 
+
 import model.PrincipalClass;
 
 public class Enemy1Thread extends Thread {
