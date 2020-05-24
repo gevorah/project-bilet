@@ -12,7 +12,7 @@ public class RefreshThread extends Thread {
 		tablero = t ;
 		
 		
-	setDaemon(true);
+		setDaemon(true);
 	}
 	
 	@Override

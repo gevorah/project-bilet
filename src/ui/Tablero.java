@@ -105,9 +105,10 @@ public class Tablero extends JFrame implements KeyListener {
 					panelJuego.add(mapita[i][j]);
 				}
 			}
-			// ajusta la ventana
+		
 			setLayout(new GridLayout(1,1));
 			add(panelJuego);
+			// ajusta la ventana
 			pack();
 			
 			//ajusta los atributos y valida que sean con los que esta en pantalla
@@ -119,7 +120,7 @@ public class Tablero extends JFrame implements KeyListener {
 			
 			// No deja que se cambie el tamaño
 			
-			//setResizable(false);
+			setResizable(false);
 
 	}
 	@SuppressWarnings("deprecation")
@@ -136,16 +137,16 @@ public class Tablero extends JFrame implements KeyListener {
 		switch(e.getKeyCode()) {
 		
 		
-		//arriba
+		//tecla arriba
 		case 38:
 			mundo.moverArriba();
 			break;
-		// 	izquierda
+		// 	tecla izquierda
 		case 37:
 			mundo.moverIzquierda();
 			break;
 		
-		//derecha
+		// tecla derecha
 		case 39:
 			mundo.moverDerecha();
 			break;
@@ -183,19 +184,23 @@ public class Tablero extends JFrame implements KeyListener {
 		
 			
 		}
-		System.out.println(e.getKeyCode());
 		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		
+		
 		// TODO Auto-generated method stub
 		
 		
 	}
 
 	public synchronized void  refresh() {
+		
+		
 		remove(panelJuego);		
+		
 		for (int i = 0; i < mapita.length; i++) {
 
 			for (int j = 0; j < mapita[0].length; j++) {

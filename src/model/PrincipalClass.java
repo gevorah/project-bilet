@@ -129,9 +129,9 @@ public class PrincipalClass {
 		
 		
 		if(jugador1.getPj().getY()+1 < matrix[0].length) {
-			System.out.println("llegó");
+			
 			if(matrix[jugador1.getPj().getX()][jugador1.getPj().getY()+1] == 3) {
-				System.out.println("llegó2");
+				
 				matrix[jugador1.getPj().getX()][jugador1.getPj().getY()] = 3;
 				matrix[jugador1.getPj().getX()][jugador1.getPj().getY()+1] = 2;
 				jugador1.getPj().setY(jugador1.getPj().getY()+1);
@@ -156,9 +156,9 @@ public class PrincipalClass {
 
 	public void moverArriba() {
 		if(jugador1.getPj().getX()-3 > 0 && jugador1.getPj().getJump()==0) {
-			System.out.println("llegó");
+		
 			if(matrix[jugador1.getPj().getX()-3][jugador1.getPj().getY()] == 3) {
-				System.out.println("llegó2");
+				
 				if(matrix[jugador1.getPj().getX()-2][jugador1.getPj().getY()] == 3 &&matrix[jugador1.getPj().getX()-1][jugador1.getPj().getY()] == 3){
 					matrix[jugador1.getPj().getX()][jugador1.getPj().getY()] = 3;
 					matrix[jugador1.getPj().getX()-3][jugador1.getPj().getY()] = 2;
@@ -228,9 +228,9 @@ public class PrincipalClass {
 	public void moverEnemigoIzquierda() {
 		
 		if(enemigos.getY()+1 < matrix[0].length) {
-			System.out.println("llegó");
+			
 			if(matrix[enemigos.getX()][enemigos.getY()+1] == 3) {
-				System.out.println("llegó2");
+			
 				matrix[enemigos.getX()][enemigos.getY()] = 3;
 				matrix[enemigos.getX()][enemigos.getY()+1] = 6;
 				enemigos.setY(enemigos.getY()+1);
