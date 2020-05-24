@@ -3,6 +3,7 @@ package model;
 public abstract class Entity {
 	private int x,y;
 	private String img;
+	
 	public Entity(int x, int y, String img) {
 		this.x = x;
 		this.y = y;
