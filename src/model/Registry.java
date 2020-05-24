@@ -33,7 +33,8 @@ public class Registry {
 				
 				if(users.get(j-1).getScore() < users.get(j).getScore()  ) {
 				userTemp =users.get(j-1);
-				users.get(j+1) = users.get(j);
+				users.set(j+1,users.get(j)) = u
+				
 				
 				}
 				
