@@ -1,20 +1,12 @@
 package model;
 
-
-
 public abstract class Entity {
 	private int x,y;
-
-
-	/**
-	 * @param x
-	 * @param y
-	e
-	 */
-	public Entity(int x, int y) {
-		super();
+	private String img;
+	public Entity(int x, int y, String img) {
 		this.x = x;
 		this.y = y;
+		this.img = img;
 	}
 	public int getX() {
 		return x;
@@ -28,6 +20,4 @@ public abstract class Entity {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
-	
 }

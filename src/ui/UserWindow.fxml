@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="288.0" fitWidth="329.0" layoutX="95.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/2020-04-19%20(5).png" />
+            <Image url="@../../imgs/2020-04-19%20(5).png" />
          </image>
       </ImageView>
       <Button layoutX="180.0" layoutY="316.0" mnemonicParsing="false" onAction="#registry" text="New Game" textFill="#030000">
@@ -18,7 +18,7 @@
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="164.0" layoutY="367.0" mnemonicParsing="false" onAction="#loadLevels" text="Resume Game" textFill="#030000">
+      <Button layoutX="164.0" layoutY="367.0" mnemonicParsing="false" onAction="#loadGameZone" text="Resume Game" textFill="#030000">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>

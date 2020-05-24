@@ -3,6 +3,7 @@ package ui;
 import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -37,7 +38,7 @@ public class UsserGUI {
 	private Label nameUser;
 
 	@FXML
-	private BorderPane mainpanel;
+	private BorderPane mainPane;
 
 	@FXML
 	private Label lmessage;
@@ -68,6 +69,8 @@ public class UsserGUI {
 	@FXML
 	private TableColumn<User, String> tclName;
 
+	public static HashMap<String, Image> images;
+
 	@FXML
 	void loadViewProfile(ActionEvent event) throws Exception {
 
@@ -76,18 +79,21 @@ public class UsserGUI {
 	}
 
 	public UsserGUI(Registry registry) {
+		images = new HashMap<>();
+		loadImages();
 		this.registry = registry;
-		/**user = new User(new Image("file:" + "img\\default.jpeg"), "Gevorah");
-		user.setPlayer1(new Player(new Character(0, 0, new Image("file:" + "img\\default.jpeg"), 2, 5, 5, "Any")));
-		user.setPlayer2(new Player(new Character(0, 0, new Image("file:" + "img\\level1.png"), 2, 5, 5, "Any")));
-		gz = new GameZone(user,);*/
 	}
-
+	void loadImages() {
+		images.put("character_1", new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/character_1.png"));
+		images.put("tilemap", new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/tilemap.png"));
+		images.put("fondo", new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/fondo-Azul.png"));
+	}
 	@FXML
 	public void loadGameZone(ActionEvent event) {
-		/**gz.manager();
-		mainpanel.setCenter(gz.getCanvas());
-		gz.gameLoop();*/
+		gz = new GameZone();
+		mainPane.getChildren().clear();
+		mainPane.setCenter(gz);
+		gz.loop();
 	}
 
 	@FXML
@@ -98,8 +104,8 @@ public class UsserGUI {
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
 		// nameUser.setText(tfNick.getText());
-		mainpanel.getChildren().clear();
-		mainpanel.setCenter(registry);
+		mainPane.getChildren().clear();
+		mainPane.setCenter(registry);
 		
 	}
 
@@ -110,8 +116,8 @@ public class UsserGUI {
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
 
-		mainpanel.getChildren().clear();
-		mainpanel.setCenter(registry);
+		mainPane.getChildren().clear();
+		mainPane.setCenter(registry);
 
 	}
 
@@ -142,8 +148,8 @@ public class UsserGUI {
 		fxmlLoader.setController(this);
 		BorderPane scorePane = fxmlLoader.load();
 
-		mainpanel.getChildren().clear();
-		mainpanel.setCenter(scorePane);
+		mainPane.getChildren().clear();
+		mainPane.setCenter(scorePane);
 
 	}
 
@@ -154,8 +160,8 @@ public class UsserGUI {
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
 
-		mainpanel.getChildren().clear();
-		mainpanel.setCenter(registry);
+		mainPane.getChildren().clear();
+		mainPane.setCenter(registry);
 
 	}
 
