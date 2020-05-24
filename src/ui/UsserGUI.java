@@ -40,7 +40,7 @@ public class UsserGUI {
 	private Label nameUser;
 
 	@FXML
-	private BorderPane mainPane;
+	private BorderPane mainPanel;
 
 	@FXML
 	private Label lmessage;
@@ -53,9 +53,11 @@ public class UsserGUI {
 
 	@FXML
 	private Button bChooseAvatar;
-
-	@FXML
-	private Pane paneLevels;
+	
+    
+    
+    @FXML
+    private Pane paneLevels;
 
 	private GameZone gz;
 	private Registry registry;
@@ -72,42 +74,38 @@ public class UsserGUI {
 	public static HashMap<String, Image> images;
 
 	@FXML
-	public void loadViewProfile(ActionEvent event) throws Exception {
+	void loadViewProfile(ActionEvent event) throws Exception {
 
-		// loadLevels(null);
+		//loadLevels(null);
 
 	}
 
 	public UsserGUI(Registry registry) {
-		images = new HashMap<>();
-		loadImages();
 		this.registry = registry;
-	}
-
-	public void loadImages() {
-		images.put("character_1",
-				new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/character_1.png"));
-		images.put("tilemap", new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/tilemap.png"));
-		images.put("fondo", new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/fondo-Azul.png"));
+		/**user = new User(new Image("file:" + "img\\default.jpeg"), "Gevorah");
+		user.setPlayer1(new Player(new Character(0, 0, new Image("file:" + "img\\default.jpeg"), 2, 5, 5, "Any")));
+		user.setPlayer2(new Player(new Character(0, 0, new Image("file:" + "img\\level1.png"), 2, 5, 5, "Any")));
+		gz = new GameZone(user,);*/
 	}
 
 	@FXML
 	public void loadGameZone(ActionEvent event) {
-		gz = new GameZone();
-		mainPane.getChildren().clear();
-		mainPane.setCenter(gz);
-		gz.loop();
+		/**gz.manager();
+		mainpanel.setCenter(gz.getCanvas());
+		gz.gameLoop();*/
 	}
 
 	@FXML
 	public void loadLevels(ActionEvent event) throws Exception {
-
+		
+		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LevelsWindow.fxml"));
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
-		mainPane.getChildren().clear();
-		mainPane.setCenter(registry);
-
+		// nameUser.setText(tfNick.getText());
+		mainPanel.getChildren().clear();
+		mainPanel.setCenter(registry);
+		
 	}
 
 	@FXML
@@ -117,8 +115,8 @@ public class UsserGUI {
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
 
-		mainPane.getChildren().clear();
-		mainPane.setCenter(registry);
+		mainPanel.getChildren().clear();
+		mainPanel.setCenter(registry);
 
 	}
 
@@ -149,8 +147,8 @@ public class UsserGUI {
 		fxmlLoader.setController(this);
 		BorderPane scorePane = fxmlLoader.load();
 
-		mainPane.getChildren().clear();
-		mainPane.setCenter(scorePane);
+		mainPanel.getChildren().clear();
+		mainPanel.setCenter(scorePane);
 
 	}
 
@@ -161,13 +159,13 @@ public class UsserGUI {
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
 
-		mainPane.getChildren().clear();
-		mainPane.setCenter(registry);
+		mainPanel.getChildren().clear();
+		mainPanel.setCenter(registry);
 
 	}
 
 	@FXML
-	public void chooseAvatar(ActionEvent event) {
+	void chooseAvatar(ActionEvent event) {
 		JFileChooser choose = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("All images", "jpg", "jpeg", "png");
 		choose.setAcceptAllFileFilterUsed(false);
@@ -211,6 +209,12 @@ public class UsserGUI {
     public void back(ActionEvent event) throws Exception {
     	
     	loadUserWindow(null);
+    }
+    
+
+    @FXML
+    void searchUser(ActionEvent event) {
+
     }
     
 	@FXML

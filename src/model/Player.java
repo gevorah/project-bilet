@@ -8,21 +8,18 @@ public class Player {
 	public Player(Character pj) {
 		this.pj = pj;
 	}
+	public void draw(GraphicsContext graphics) {
+		graphics.drawImage(pj.getPj(), pj.getX(), pj.getY());
+	}
+	public void handle() {
+		if(GameZone.left) pj.setX(pj.getX()-pj.getSpeed());
+		if(GameZone.right) pj.setX(pj.getX()+pj.getSpeed());
+		if(GameZone.up) pj.setY(pj.getY()-pj.getJump());
+	}
 	public Character getPj() {
 		return pj;
 	}
 	public void setPj(Character pj) {
 		this.pj = pj;
-	}
-	public class Characters {
-		private Character head;
-		public Characters() {
-		}
-		public void add(int x, int y, String img) {
-			Character add = null;
-			if(head==null) {
-				head = add;
-			}
-		}
 	}
 }
