@@ -8,6 +8,7 @@ import java.util.HashMap;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import customExceptions.invalidInformationException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -51,11 +52,9 @@ public class UsserGUI {
 
 	@FXML
 	private Button bChooseAvatar;
-	
-    
-    
-    @FXML
-    private Pane paneLevels;
+
+	@FXML
+	private Pane paneLevels;
 
 	private GameZone gz;
 	private Registry registry;
@@ -72,9 +71,9 @@ public class UsserGUI {
 	public static HashMap<String, Image> images;
 
 	@FXML
-	void loadViewProfile(ActionEvent event) throws Exception {
+	public void loadViewProfile(ActionEvent event) throws Exception {
 
-		//loadLevels(null);
+		// loadLevels(null);
 
 	}
 
@@ -83,11 +82,14 @@ public class UsserGUI {
 		loadImages();
 		this.registry = registry;
 	}
-	void loadImages() {
-		images.put("character_1", new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/character_1.png"));
+
+	public void loadImages() {
+		images.put("character_1",
+				new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/character_1.png"));
 		images.put("tilemap", new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/tilemap.png"));
 		images.put("fondo", new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/fondo-Azul.png"));
 	}
+
 	@FXML
 	public void loadGameZone(ActionEvent event) {
 		gz = new GameZone();
@@ -98,15 +100,13 @@ public class UsserGUI {
 
 	@FXML
 	public void loadLevels(ActionEvent event) throws Exception {
-		
-		
+
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LevelsWindow.fxml"));
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
-		// nameUser.setText(tfNick.getText());
 		mainPane.getChildren().clear();
 		mainPane.setCenter(registry);
-		
+
 	}
 
 	@FXML
@@ -166,7 +166,7 @@ public class UsserGUI {
 	}
 
 	@FXML
-	void chooseAvatar(ActionEvent event) {
+	public void chooseAvatar(ActionEvent event) {
 		JFileChooser choose = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("All images", "jpg", "jpeg", "png");
 		choose.setAcceptAllFileFilterUsed(false);
@@ -179,19 +179,84 @@ public class UsserGUI {
 	}
 
 	@FXML
-	void addUser(ActionEvent event) throws Exception {
+	public void addUser(ActionEvent event) throws Throwable {
 		Image avatar = ivAvatar.getImage();
 		String nickname = tfNick.getText();
 
-		if (!nickname.trim().equals("")) {
-			registry.addUser(avatar, nickname);
+		// if (!nickname.trim().equals("")) {
+		try {
 
+			registry.addUser(avatar, nickname);
 			loadLevels(null);
-		} else {
+
+		} catch (invalidInformationException iv) {
+			// } else {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle(null);
-			alert.setContentText("Please fill.");
+			alert.setContentText("fill in the fields");
 			alert.showAndWait();
+
 		}
 	}
+
+	@FXML
+	public void levelFour1(ActionEvent event) {
+
+	}
+
+	@FXML
+	public void levelFour2(ActionEvent event) {
+
+	}
+
+	@FXML
+	public void levelFour3(ActionEvent event) {
+
+	}
+
+	@FXML
+	public void levelOne1(ActionEvent event) {
+
+	}
+
+	@FXML
+	public void levelOne2(ActionEvent event) {
+
+	}
+
+	@FXML
+	public void levelThree1(ActionEvent event) {
+
+	}
+
+	@FXML
+	public void levelThree2(ActionEvent event) {
+
+	}
+
+	@FXML
+	public void levelTwo1(ActionEvent event) {
+
+	}
+
+	@FXML
+	public void levelTwo2(ActionEvent event) {
+
+	}
+
+	@FXML
+	public void levelTwo3(ActionEvent event) {
+
+	}
+
+	@FXML
+	void pilot(ActionEvent event) {
+
+	}
+
+	@FXML
+	public void win(ActionEvent event) {
+
+	}
+
 }

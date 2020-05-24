@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import customExceptions.invalidInformationException;
 import javafx.scene.image.Image;
 import model.User;
 
@@ -14,9 +16,15 @@ public class Registry {
 	public Registry() {
 		users=new ArrayList<User>();
 	}
-	public void addUser(Image avatar, String nickname) {
+	public void addUser(Image avatar, String nickname) throws invalidInformationException {
+		if(nickname.trim().equals("")&& avatar==null){
+			throw new invalidInformationException();
+		}
+		else {
 		users.add(new User(avatar, nickname));
+		}
 	}
+	
 	public ArrayList<User> getUsers() {
 		return users;
 	}
@@ -33,7 +41,7 @@ public class Registry {
 				
 				if(users.get(j-1).getScore() < users.get(j).getScore()  ) {
 				userTemp =users.get(j-1);
-				users.set(j+1,users.get(j)) = u
+				users.set(j+1,users.get(j));
 				
 				
 				}

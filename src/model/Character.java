@@ -34,9 +34,10 @@ public class Character extends Entity {
 		if(GameZone.right) super.setX(super.getX()+speed);
 		if(GameZone.up) super.setY(super.getY()-speed);
 	}
-	public boolean colli() {
+	public boolean collition(int moveX, int moveY) {
 		boolean collition = false;
-		
+		int x = super.getX()+moveX;
+		int y = super.getY()+moveY;
 		return collition;
 	}
 }
