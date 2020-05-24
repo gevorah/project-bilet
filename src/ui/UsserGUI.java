@@ -8,6 +8,7 @@ import java.util.HashMap;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import customExceptions.RepeatUserException;
 import customExceptions.invalidInformationException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -183,22 +184,35 @@ public class UsserGUI {
 		Image avatar = ivAvatar.getImage();
 		String nickname = tfNick.getText();
 
-		// if (!nickname.trim().equals("")) {
+		
 		try {
 
 			registry.addUser(avatar, nickname);
 			loadLevels(null);
 
 		} catch (invalidInformationException iv) {
-			// } else {
+			
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle(null);
 			alert.setContentText("fill in the fields");
 			alert.showAndWait();
 
+		} catch (RepeatUserException re) {
+			
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle(null);
+			alert.setContentText("There is already a registered user with this nickname");
+			alert.showAndWait();
 		}
 	}
 
+
+    @FXML
+    public void back(ActionEvent event) throws Exception {
+    	
+    	loadUserWindow(null);
+    }
+    
 	@FXML
 	public void levelFour1(ActionEvent event) {
 

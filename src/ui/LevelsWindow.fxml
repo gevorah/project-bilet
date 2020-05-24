@@ -84,5 +84,6 @@
             <Image url="@../../imgs/win.png" />
          </image>
       </ImageView>
+      <Button layoutX="612.0" layoutY="360.0" mnemonicParsing="false" onAction="#back" text="back to top" />
    </children>
 </Pane>

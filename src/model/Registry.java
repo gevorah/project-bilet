@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import customExceptions.RepeatUserException;
 import customExceptions.invalidInformationException;
 import javafx.scene.image.Image;
 import model.User;
@@ -16,13 +17,27 @@ public class Registry {
 	public Registry() {
 		users=new ArrayList<User>();
 	}
-	public void addUser(Image avatar, String nickname) throws invalidInformationException {
-		if(nickname.trim().equals("")&& avatar==null){
-			throw new invalidInformationException();
+	public void addUser(Image avatar, String nickname) throws invalidInformationException, RepeatUserException {
+		
+		findUser(nickname);
+		
+		if(!nickname.trim().equals("")){
+			users.add(new User(avatar, nickname));
 		}
 		else {
-		users.add(new User(avatar, nickname));
+			throw new invalidInformationException();
 		}
+	}
+	
+	public void findUser(String name)throws RepeatUserException {
+		
+		for (int i=0; i<users.size(); i++) {
+			if(users.get(i).getNickname().equals(name)) {
+				
+				throw new RepeatUserException();
+			}
+		}
+		
 	}
 	
 	public ArrayList<User> getUsers() {
