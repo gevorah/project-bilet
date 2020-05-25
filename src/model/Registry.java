@@ -45,6 +45,8 @@ public class Registry {
 	}
 
 	public void ordernarPuntajeMinToMax() {
+	
+		// Burbuja sort 1
 		
 		
 
@@ -53,7 +55,7 @@ public class Registry {
 		for (int i = 0; i < users.size(); i++) {
 			for (int j = 1; j < (users.size() - i); j++) {
 
-				if (users.get(j - 1).getScore() < users.get(j).getScore()) {
+				if (users.get(j - 1).getScore()> users.get(j).getScore()) {
 					userTemp = users.get(j - 1);
 					users.set(j - 1, users.get(j));
 					users.set(j, userTemp);
@@ -65,7 +67,9 @@ public class Registry {
 
 	}
 	
-/*	public void ordenarPuntajeMaxToMin() {
+	public void ordenarPuntajeMaxToMin() {
+		
+		//Insertion sort 1
 		
 		User userTemp;
 		
@@ -74,15 +78,24 @@ public class Registry {
 			userTemp = users.get(i);
 			int j = i-1;
 			
-			while( (j >-1)&&(users.get(j).getScore()>  )) {
+			while( (j >-1)&&(users.get(j).getScore() < userTemp.getScore())) {
 				
+				users.set(j+1,users.get(j));
+				j--;
+				
+			
 			}
 			
-
-
-			
+			users.set(j+1,userTemp);
+		
 		}
 		
-	}*/
+	}
+	
+	//public void 
+	
+	//public void ordenar
+	
+	
 
 }

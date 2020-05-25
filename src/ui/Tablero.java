@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
@@ -21,14 +22,22 @@ public class Tablero extends JFrame implements KeyListener {
 	private RefreshThread rT ;
 	private static final long serialVersionUID = 1L;
 	private PrincipalClass mundo;
+	public PrincipalClass getMundo() {
+		return mundo;
+	}
+
+	public void setMundo(PrincipalClass mundo) {
+		this.mundo = mundo;
+	}
+
 	private JLabel[][] mapita;
 	private JPanel panelJuego;
 
-	public Tablero() {
+	public Tablero(String r) {
 		
 		
 
-		mundo = new PrincipalClass("maps/lvl1.txt");
+		mundo = new PrincipalClass(r);
 
 		mapita = new JLabel[mundo.getMatrix().length][mundo.getMatrix()[0].length];
 
@@ -123,13 +132,15 @@ public class Tablero extends JFrame implements KeyListener {
 			setResizable(false);
 
 	}
-	@SuppressWarnings("deprecation")
+	/*@SuppressWarnings("deprecation")
+	
 	public static void main(String[] args) {
 		
+	public void tablero() {
 		Tablero tab = new Tablero();
 		tab.show();
 		
-	}
+	}*/
 
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -265,6 +276,14 @@ public class Tablero extends JFrame implements KeyListener {
 		validate();
 		pack();
 		
+		
+		
+	}
+
+	public void perdio() {
+		
+		
+		JOptionPane.showMessageDialog(this, "Game over", "", JOptionPane.WARNING_MESSAGE);
 		
 		
 	}

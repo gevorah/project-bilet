@@ -20,14 +20,28 @@ public class PrincipalClass {
 
 	private String archiveR;
 	
+	private String archiveS;
+	
 	private Player jugador1;
 	
 	private Character enemigos;
+	
+	private boolean inGame;
+	
 
+
+	public boolean isInGame() {
+		return inGame;
+	}
+	public void setInGame(boolean inGame) {
+		this.inGame = inGame;
+	}
 	public PrincipalClass(String r) {
 
 		archiveR = r;
+		archiveS = "data/selection.txt";
 		loadMap();
+		inGame = true;
 		gThread = new GravityThread(this);
 		
 		gThread.start();
@@ -39,7 +53,15 @@ public class PrincipalClass {
 		
 
 	}
-
+	public void loadStoryLine() {
+		try {
+			br = new BufferedReader(new FileReader(new File(archiveR)));
+		} catch(Exception e) {
+			
+		}
+		
+	}
+	
 	public void loadMap() {
 		
 		
@@ -127,8 +149,10 @@ public class PrincipalClass {
 
 	public void moverDerecha() {
 		
+		if(matrix[jugador1.getPj().getX()][jugador1.getPj().getY()+1] == 6) inGame = false;
 		
-		if(jugador1.getPj().getY()+1 < matrix[0].length) {
+		
+		else if(jugador1.getPj().getY()+1 < matrix[0].length) {
 			
 			if(matrix[jugador1.getPj().getX()][jugador1.getPj().getY()+1] == 3) {
 				
@@ -142,11 +166,13 @@ public class PrincipalClass {
 		
 	}
 	public void moverIzquierda() {
+		
+		if(matrix[jugador1.getPj().getX()][jugador1.getPj().getY()-1] == 6) inGame = false;
 
-		if(jugador1.getPj().getY()-1 > 0) {
-			System.out.println("llegó");
+		else if(jugador1.getPj().getY()-1 > 0) {
+			
 			if(matrix[jugador1.getPj().getX()][jugador1.getPj().getY()-1] == 3) {
-				System.out.println("llegó2");
+				
 				matrix[jugador1.getPj().getX()][jugador1.getPj().getY()] = 3;
 				matrix[jugador1.getPj().getX()][jugador1.getPj().getY()-1] = 2;
 				jugador1.getPj().setY(jugador1.getPj().getY()-1);
@@ -156,8 +182,10 @@ public class PrincipalClass {
 
 	public void moverArriba() {
 		if(jugador1.getPj().getX()-3 > 0 && jugador1.getPj().getJump()==0) {
-		
-			if(matrix[jugador1.getPj().getX()-3][jugador1.getPj().getY()] == 3) {
+			
+			if (matrix[jugador1.getPj().getX()-3][jugador1.getPj().getY()] == 6) 
+				inGame = false;
+			else if(matrix[jugador1.getPj().getX()-3][jugador1.getPj().getY()] == 3) {
 				
 				if(matrix[jugador1.getPj().getX()-2][jugador1.getPj().getY()] == 3 &&matrix[jugador1.getPj().getX()-1][jugador1.getPj().getY()] == 3){
 					matrix[jugador1.getPj().getX()][jugador1.getPj().getY()] = 3;
@@ -187,7 +215,17 @@ public class PrincipalClass {
 	
 	public void fall() {
 		
-		if(jugador1.getPj().getX()+1 < matrix.length &&  matrix[jugador1.getPj().getX()+1][jugador1.getPj().getY()] != 1 &&  matrix[jugador1.getPj().getX()+1][jugador1.getPj().getY()] != 4 ) {
+		
+		if(matrix[jugador1.getPj().getX()+1][jugador1.getPj().getY()] == 6) {
+			
+			inGame = false;
+			
+			
+		}
+		else if(jugador1.getPj().getX()+1 < matrix.length &&  
+			matrix[jugador1.getPj().getX()+1][jugador1.getPj().getY()] != 1 &&
+			matrix[jugador1.getPj().getX()+1][jugador1.getPj().getY()] != 4 &&
+			matrix[jugador1.getPj().getX()+1][jugador1.getPj().getY()] != 5 ) {
 			
 			matrix[jugador1.getPj().getX()][jugador1.getPj().getY()] = 3;
 			matrix[jugador1.getPj().getX()+1][jugador1.getPj().getY()] = 2;
@@ -210,34 +248,46 @@ public class PrincipalClass {
 	
 	public void moverEnemigoDerecha() {
 		
-		if(enemigos.getY()-1 > 0) {
-			System.out.println("llegó");
-			if(matrix[enemigos.getX()][enemigos.getY()-1] == 3) {
-				System.out.println("llegó2");
+		if(enemigos.getY()-1 >= 0) {
+			
+			if(matrix[enemigos.getX()][enemigos.getY()-1] == 2) {
+				inGame= false;
+			}
+			
+			else if(matrix[enemigos.getX()][enemigos.getY()-1] == 3) {
+				
 				matrix[enemigos.getX()][enemigos.getY()] = 3;
 				matrix[enemigos.getX()][enemigos.getY()-1] = 6;
 				enemigos.setY(enemigos.getY()-1);
 			}
 			
-			else if (matrix[enemigos.getX()][enemigos.getY()-1] == 1
-					||matrix[enemigos.getX()][enemigos.getY()-1] == 4) {
+			else if (matrix[enemigos.getX()][enemigos.getY()-1] != 3) {
 				enemigos.setSpeed(1);
 			}
 		}
 	}
 	public void moverEnemigoIzquierda() {
 		
-		if(enemigos.getY()+1 < matrix[0].length) {
+		if(enemigos.getY()+1 <= matrix[0].length) {
 			
-			if(matrix[enemigos.getX()][enemigos.getY()+1] == 3) {
+			if(matrix[enemigos.getX()][enemigos.getY()+1] == 2) {
+				
+				inGame = false;
+				
+				
+				
+			}
+			
+			
+			else if(matrix[enemigos.getX()][enemigos.getY()+1] == 3) {
 			
 				matrix[enemigos.getX()][enemigos.getY()] = 3;
 				matrix[enemigos.getX()][enemigos.getY()+1] = 6;
 				enemigos.setY(enemigos.getY()+1);
 			}
 			
-			else if (matrix[enemigos.getX()][enemigos.getY()+1] == 1
-					||matrix[enemigos.getX()][enemigos.getY()+1] == 4) {
+			
+			else if (matrix[enemigos.getX()][enemigos.getY()+1] != 3) {
 				enemigos.setSpeed(0);
 			}
 		}
@@ -249,6 +299,18 @@ public class PrincipalClass {
 
 	public void setEnemigos(Character enemigos) {
 		this.enemigos = enemigos;
+	}
+	
+	public void siguienteNivel() {
+		
+		
+		
+	}
+	
+	public void personajeMuere() {	
+		
+		
+		
 	}
 	
 	

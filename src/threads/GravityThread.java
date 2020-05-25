@@ -9,13 +9,14 @@ public class GravityThread extends Thread {
 	public GravityThread(PrincipalClass pC) {
 
 		principalClass = pC;
+		setDaemon(true);
 
 	}
 
 	@Override
 	public void run() {
 
-		while (true) {
+		while (principalClass.isInGame()) {
 
 			principalClass.fall();
 

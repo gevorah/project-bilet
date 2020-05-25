@@ -2,12 +2,15 @@ package model;
 
 import javafx.scene.image.Image;
 
-public class User {
+public class User implements Comparable<User> {
 
 	private Image avatar;
 	private String nickname;
 	private long score;
-	private Player player1, player2;
+	private Player player1;
+	private Player player2;
+	//private LocalDateTime fecha;
+	
 	public User(Image avatar, String nickname) {
 		this.avatar = avatar;
 		this.nickname = nickname;
@@ -36,5 +39,15 @@ public class User {
 	}
 	public void setPlayer2(Player player2) {
 		this.player2 = player2;
+	}
+
+	@Override
+	public int compareTo(User o) {
+		if (getNickname().equals(o.getNickname()))		
+			return 0;
+		else if (getNickname().compareTo(o.getNickname())>0) 
+			return 1;
+		else 
+			return -1;
 	}
 }

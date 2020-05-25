@@ -40,7 +40,7 @@ public class UsserGUI {
 	private Label nameUser;
 
 	@FXML
-	private BorderPane mainPanel;
+	private BorderPane mainPane;
 
 	@FXML
 	private Label lmessage;
@@ -62,6 +62,7 @@ public class UsserGUI {
 	private GameZone gz;
 	private Registry registry;
 	private User user;
+	private Tablero tablero;
 	@FXML
 	private TableView<User> txScoreTV;
 
@@ -102,9 +103,8 @@ public class UsserGUI {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LevelsWindow.fxml"));
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
-		// nameUser.setText(tfNick.getText());
-		mainPanel.getChildren().clear();
-		mainPanel.setCenter(registry);
+		mainPane.getChildren().clear();
+		mainPane.setCenter(registry);
 		
 	}
 
@@ -115,8 +115,8 @@ public class UsserGUI {
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
 
-		mainPanel.getChildren().clear();
-		mainPanel.setCenter(registry);
+		mainPane.getChildren().clear();
+		mainPane.setCenter(registry);
 
 	}
 
@@ -147,8 +147,8 @@ public class UsserGUI {
 		fxmlLoader.setController(this);
 		BorderPane scorePane = fxmlLoader.load();
 
-		mainPanel.getChildren().clear();
-		mainPanel.setCenter(scorePane);
+		mainPane.getChildren().clear();
+		mainPane.setCenter(scorePane);
 
 	}
 
@@ -159,8 +159,8 @@ public class UsserGUI {
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
 
-		mainPanel.getChildren().clear();
-		mainPanel.setCenter(registry);
+		mainPane.getChildren().clear();
+		mainPane.setCenter(registry);
 
 	}
 
@@ -214,67 +214,94 @@ public class UsserGUI {
 
     @FXML
     void searchUser(ActionEvent event) {
+    	
+    }
+
+    
+    @FXML
+    void leveFour3(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlPilot.txt"); 
+    	
+    	mainPane.setVisible(false);
+    	tablero.setVisible(true);
+    }
+
+    @FXML
+    void levelFour1(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlPilot.txt"); 
+    	mainPane.setVisible(false);
+    	tablero.setVisible(true);
+    }
+
+    @FXML
+    void levelFour2(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlPilot.txt"); 
+    	mainPane.setVisible(false);
+    	tablero.setVisible(true);
+    }
+
+    @FXML
+    void levelOne1(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlOne1.txt"); 
+    	mainPane.setVisible(false);
+    	tablero.setVisible(true);;
+    }
+
+    @FXML
+    void levelOne2(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlOne2.txt"); 
+    	mainPane.setVisible(false);
+    	tablero.setVisible(true);
+    }
+
+    @FXML
+    void levelThree1(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlPilot.txt"); 
+    	mainPane.setVisible(false);
+    	tablero.setVisible(true);
+    }
+
+    @FXML
+    void levelThree2(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlPilot.txt"); 
+    	mainPane.setVisible(false);
+    	tablero.setVisible(true);
+    }
+
+    @FXML
+    void levelTwo1(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlTwo1.txt"); 
+    	mainPane.setVisible(false);
+    	tablero.setVisible(true);
+    }
+
+    @FXML
+    void levelTwo2(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlTwo2.txt"); 
+    	mainPane.setVisible(false);
+    	tablero.setVisible(true);
+    }
+
+    @FXML
+    void levelTwo3(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlTwo3.txt"); 
+    	mainPane.setVisible(false);
+    	tablero.setVisible(true);
+    }
+
+    @FXML
+    void pilot(ActionEvent event) {
+    	
+
+		tablero = new Tablero("maps/lvlPilot.txt"); 
+		mainPane.setVisible(false);
+    	tablero.setVisible(true);
+    }
+
+    @FXML
+    void win(ActionEvent event) {
 
     }
-    
-	@FXML
-	public void levelFour1(ActionEvent event) {
 
-	}
-
-	@FXML
-	public void levelFour2(ActionEvent event) {
-
-	}
-
-	@FXML
-	public void levelFour3(ActionEvent event) {
-
-	}
-
-	@FXML
-	public void levelOne1(ActionEvent event) {
-
-	}
-
-	@FXML
-	public void levelOne2(ActionEvent event) {
-
-	}
-
-	@FXML
-	public void levelThree1(ActionEvent event) {
-
-	}
-
-	@FXML
-	public void levelThree2(ActionEvent event) {
-
-	}
-
-	@FXML
-	public void levelTwo1(ActionEvent event) {
-
-	}
-
-	@FXML
-	public void levelTwo2(ActionEvent event) {
-
-	}
-
-	@FXML
-	public void levelTwo3(ActionEvent event) {
-
-	}
-
-	@FXML
-	void pilot(ActionEvent event) {
-
-	}
-
-	@FXML
-	public void win(ActionEvent event) {
-
-	}
 
 }

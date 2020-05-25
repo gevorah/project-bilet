@@ -20,7 +20,7 @@ public class Enemy1Thread extends Thread {
 	public void run() {
 		
 		
-		while(true) {
+		while(principalClass.isInGame()) {
 			
 			if (principalClass.getEnemigos().getSpeed()==0) {
 				

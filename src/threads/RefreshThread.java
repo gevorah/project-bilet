@@ -18,7 +18,7 @@ public class RefreshThread extends Thread {
 	@Override
 	public void run() {
 		
-		while(true) {
+		while(tablero.getMundo().isInGame()) {
 			
 			
 			
@@ -36,6 +36,8 @@ public class RefreshThread extends Thread {
 			}
 			
 		}
+		
+		tablero.perdio();
 		
 		
 	}
