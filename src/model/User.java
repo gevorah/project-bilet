@@ -8,6 +8,9 @@ public class User {
 	private String nickname;
 	private long score;
 	private Player player1;
+	private Player player2;
+	//private LocalDateTime fecha;
+	
 	public User(Image avatar, String nickname) {
 		this.avatar = avatar;
 		this.nickname = nickname;
@@ -22,6 +25,9 @@ public class User {
 	public long getScore() {
 		return score;
 	}
+	public void setScore(long score) {
+		this.score = score;
+	}
 	public void setAvatar(Image avatar) {
 		this.avatar = avatar;
 	}
@@ -30,5 +36,11 @@ public class User {
 	}
 	public void setPlayer1(Player player1) {
 		this.player1 = player1;
-	}	
+	}
+	public Player getPlayer2() {
+		return player2;
+	}
+	public void setPlayer2(Player player2) {
+		this.player2 = player2;
+	}
 }

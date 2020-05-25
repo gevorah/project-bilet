@@ -14,7 +14,7 @@
       <Label layoutX="156.0" layoutY="222.0" />
       <ImageView fx:id="ivAvatar" fitHeight="150.0" fitWidth="150.0" layoutX="229.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/default.jpeg" />
+            <Image url="@../../img/default.jpeg" />
          </image>
       </ImageView>
       <Button fx:id="bChooseAvatar" layoutX="229.0" layoutY="207.0" mnemonicParsing="false" onAction="#chooseAvatar" prefHeight="30.0" prefWidth="150.0" text="Choose avatar..." />

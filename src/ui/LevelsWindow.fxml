@@ -9,81 +9,81 @@
    <children>
       <ImageView fitHeight="416.0" fitWidth="699.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/galaxy.png" />
+            <Image url="@../../img/galaxy.png" />
          </image>
       </ImageView>
-      <Button layoutX="27.0" layoutY="162.0" mnemonicParsing="false" onAction="#pilot" prefHeight="71.0" prefWidth="79.0" />
-      <Button layoutX="106.0" layoutY="31.0" mnemonicParsing="false" onAction="#levelOne1" prefHeight="71.0" prefWidth="79.0" />
-      <Button layoutX="480.0" layoutY="162.0" mnemonicParsing="false" onAction="#levelFour2" prefHeight="71.0" prefWidth="79.0" />
-      <Button layoutX="491.0" layoutY="6.0" mnemonicParsing="false" onAction="#levelFour1" prefHeight="71.0" prefWidth="79.0" />
-      <Button layoutX="369.0" layoutY="240.0" mnemonicParsing="false" onAction="#levelThree2" prefHeight="71.0" prefWidth="79.0" />
-      <Button layoutX="369.0" layoutY="77.0" mnemonicParsing="false" onAction="#levelThree1" prefHeight="71.0" prefWidth="79.0" />
-      <Button layoutX="251.0" layoutY="291.0" mnemonicParsing="false" onAction="#levelTwo3" prefHeight="71.0" prefWidth="79.0" />
-      <Button layoutX="251.0" layoutY="162.0" mnemonicParsing="false" onAction="#levelTwo2" prefHeight="71.0" prefWidth="79.0" />
-      <Button layoutX="247.0" layoutY="20.0" mnemonicParsing="false" onAction="#levelTwo1" prefHeight="71.0" prefWidth="79.0" />
-      <Button layoutX="121.0" layoutY="275.0" mnemonicParsing="false" onAction="#levelOne2" prefHeight="71.0" prefWidth="79.0" />
-      <Button layoutX="615.0" layoutY="162.0" mnemonicParsing="false" onAction="#win" prefHeight="51.0" prefWidth="70.0" />
-      <Button layoutX="491.0" layoutY="301.0" mnemonicParsing="false" onAction="#levelFour3" prefHeight="71.0" prefWidth="79.0" />
       <ImageView fitHeight="94.0" fitWidth="147.0" layoutX="100.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/levelOne.png" />
+            <Image url="@../../img/levelOne.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="95.0" fitWidth="154.0" layoutX="343.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/level3.png" />
+            <Image url="@../../img/level3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="167.0" fitWidth="216.0" layoutX="9.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="167.0" fitWidth="216.0" layoutX="13.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/pilot.png" />
+            <Image url="@../../img/pilot.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="95.0" fitWidth="154.0" layoutX="343.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/level3.png" />
+            <Image url="@../../img/level3.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="95.0" fitWidth="154.0" layoutX="468.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/level4.png" />
+            <Image url="@../../img/level4.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="94.0" fitWidth="154.0" layoutX="468.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/level4.png" />
+            <Image url="@../../img/level4.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="95.0" fitWidth="154.0" layoutX="457.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/level4.png" />
+            <Image url="@../../img/level4.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="94.0" fitWidth="154.0" layoutX="225.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/level2.png" />
+            <Image url="@../../img/level2.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="94.0" fitWidth="156.0" layoutX="224.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/level2.png" />
+            <Image url="@../../img/level2.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="107.0" fitWidth="147.0" layoutX="87.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/levelOne.png" />
+            <Image url="@../../img/levelOne.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="107.0" fitWidth="147.0" layoutX="233.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/level2.png" />
+            <Image url="@../../img/level2.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="71.0" fitWidth="110.0" layoutX="604.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/win.png" />
+            <Image url="@../../img/win.png" />
          </image>
       </ImageView>
-      <Button layoutX="612.0" layoutY="360.0" mnemonicParsing="false" onAction="#back" text="back to top" />
+      <Button layoutX="624.0" layoutY="350.0" mnemonicParsing="false" onAction="#back" text="back" />
+      <Button layoutX="27.0" layoutY="162.0" mnemonicParsing="false" onAction="#pilot" opacity="0.0" prefHeight="71.0" prefWidth="79.0" />
+      <Button layoutX="106.0" layoutY="31.0" mnemonicParsing="false" onAction="#levelOne1" opacity="0.0" prefHeight="71.0" prefWidth="79.0" />
+      <Button layoutX="480.0" layoutY="162.0" mnemonicParsing="false" onAction="#levelFour2" opacity="0.0" prefHeight="71.0" prefWidth="79.0" />
+      <Button layoutX="491.0" layoutY="6.0" mnemonicParsing="false" onAction="#levelFour1" opacity="0.0" prefHeight="71.0" prefWidth="79.0" />
+      <Button layoutX="369.0" layoutY="240.0" mnemonicParsing="false" onAction="#levelThree2" opacity="0.0" prefHeight="71.0" prefWidth="79.0" />
+      <Button layoutX="369.0" layoutY="77.0" mnemonicParsing="false" onAction="#levelThree1" opacity="0.0" prefHeight="71.0" prefWidth="79.0" />
+      <Button layoutX="251.0" layoutY="291.0" mnemonicParsing="false" onAction="#levelTwo3" opacity="0.0" prefHeight="71.0" prefWidth="79.0" />
+      <Button layoutX="251.0" layoutY="162.0" mnemonicParsing="false" onAction="#levelTwo2" opacity="0.0" prefHeight="71.0" prefWidth="79.0" />
+      <Button layoutX="247.0" layoutY="20.0" mnemonicParsing="false" onAction="#levelTwo1" opacity="0.0" prefHeight="71.0" prefWidth="79.0" />
+      <Button layoutX="121.0" layoutY="275.0" mnemonicParsing="false" onAction="#levelOne2" opacity="0.0" prefHeight="71.0" prefWidth="79.0" />
+      <Button layoutX="615.0" layoutY="162.0" mnemonicParsing="false" onAction="#win" opacity="0.0" prefHeight="51.0" prefWidth="70.0" />
+      <Button layoutX="491.0" layoutY="301.0" mnemonicParsing="false" onAction="#leveFour3" opacity="0.0" prefHeight="71.0" prefWidth="79.0" />
    </children>
 </Pane>

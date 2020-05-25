@@ -12,65 +12,85 @@ import javafx.scene.input.KeyEvent;
 import model.Player;
 import model.PrincipalClass;
 import model.Character;
-import model.Tile;
 import model.User;
 
-public class GameZone extends Canvas {
+
+public class GameZone {
+	private Canvas canvas;
 	private GraphicsContext graphics;
-	private PrincipalClass pc;
-	private Player player1,player2;
-	private Character character;
-	private ArrayList<Tile> tiles;
+	private Scene scene;
+	private HandleKeyPressed hkp;
+	private HandleKeyReleased hkr;
+	private User user;
 	public static boolean up;
-	public static boolean down;
 	public static boolean left;
 	public static boolean right;
-	public GameZone() {
-		super(960,576);
-		graphics = super.getGraphicsContext2D();
-		pc = new PrincipalClass("maps/lvlTmp.txt");
-		character = new Character(0,400,"character_1",10,10);
-		inicializarTiles();
+	public GameZone(User user, Scene scene) {
+		canvas = new Canvas(700,600);
+		graphics = canvas.getGraphicsContext2D();
+		this.scene = scene;
+		this.user = user;
+		hkp = new HandleKeyPressed();
+		hkr = new HandleKeyReleased();
 	}
-	void loop() {
-		new AnimationTimer() {
+	public void gameLoop() {
+		AnimationTimer at = new AnimationTimer() {
 			@Override
 			public void handle(long now) {
-				update();
+				gameUpdate();
 				draw();
 			}
-		}.start();
+		};
+		at.start();
 	}
-	void update() {
-		character.handle();
+	public void gameUpdate() {
+		user.getPlayer1().handle();
+		user.getPlayer2().handle();
 	}
-	void draw() {
-		graphics.drawImage(UsserGUI.images.get("fondo"), 0, 0);
-		for(Tile a:tiles) {
-			a.draw(graphics);
-		}
-		character.draw(graphics);
+	public void draw() {
+		graphics.drawImage(new Image("file:imgs\\2020-04-19 (5).png"), 0, 0);
+		user.getPlayer1().draw(graphics);
+		user.getPlayer2().draw(graphics);
 	}
-	void inicializarTiles() {
-		tiles = new ArrayList<Tile>();
-		int[][] tilemap = pc.getMatrix();
-		for(int i=0;i<tilemap.length;i++) {
-			for(int j=0;j<tilemap[i].length;j++) {
-				switch (tilemap[i][j]) {
-				case 0:
-					
-					break;
-				case 1:
-					this.tiles.add(new Tile(j*96, i*96, 1));
-					break;
-				case 2:
-					
-					break;
-				case 3:
-					
-					break;
-				} 
+	public void manager() {
+		scene.setOnKeyPressed(hkp);
+		scene.setOnKeyReleased(hkr);
+	}
+	private class HandleKeyPressed implements EventHandler<KeyEvent> {
+		public HandleKeyPressed() {}
+		@Override
+		public void handle(KeyEvent event) {
+			switch (event.getCode().toString()) {
+			case "UP":
+				up = true;
+				break;
+			case "LEFT":
+				left = true;
+				break;
+			case "RIGHT":
+				right = true;
+				break;
 			}
 		}
+	}
+	private class HandleKeyReleased implements EventHandler<KeyEvent> {
+		@Override
+		public void handle(KeyEvent event) {
+			switch (event.getCode().toString()) {
+			case "UP":
+				up = false;
+				break;
+			case "LEFT":
+				left = false;
+				break;
+			case "RIGHT":
+				right = false;
+				break;
+			}
+		}
+		
+	}
+	public Canvas getCanvas() {
+		return canvas;
 	}
 }

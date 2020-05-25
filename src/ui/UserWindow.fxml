@@ -8,22 +8,27 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="288.0" fitWidth="329.0" layoutX="95.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="210.0" fitWidth="213.0" layoutX="150.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/2020-04-19%20(5).png" />
+            <Image url="@../../img/2020-04-19%20(5).png" />
          </image>
       </ImageView>
-      <Button layoutX="180.0" layoutY="316.0" mnemonicParsing="false" onAction="#registry" text="New Game" textFill="#030000">
+      <Button layoutX="184.0" layoutY="242.0" mnemonicParsing="false" onAction="#registry" text="New Game" textFill="#030000">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="164.0" layoutY="367.0" mnemonicParsing="false" onAction="#loadGameZone" text="Resume Game" textFill="#030000">
+      <Button layoutX="168.0" layoutY="291.0" mnemonicParsing="false" onAction="#loadGameZone" text="Resume Game" textFill="#030000">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="180.0" layoutY="417.0" mnemonicParsing="false" onAction="#showScore" text="Score Table" textFill="#030000">
+      <Button layoutX="184.0" layoutY="335.0" mnemonicParsing="false" onAction="#showScore" text="Score Table" textFill="#030000">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="184.0" layoutY="385.0" mnemonicParsing="false" onAction="#searchUser" text="Search User" textFill="#030000">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>

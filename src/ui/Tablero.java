@@ -24,11 +24,11 @@ public class Tablero extends JFrame implements KeyListener {
 	private JLabel[][] mapita;
 	private JPanel panelJuego;
 
-	public Tablero() {
+	public Tablero(String r) {
 		
 		
 
-		mundo = new PrincipalClass("maps/lvl1.txt");
+		mundo = new PrincipalClass(r);
 
 		mapita = new JLabel[mundo.getMatrix().length][mundo.getMatrix()[0].length];
 
@@ -43,7 +43,6 @@ public class Tablero extends JFrame implements KeyListener {
 		rT.start();
 
 	}
-
 	private void inicializarTablero() {
 
 		for (int i = 0; i < mapita.length; i++) {
@@ -123,13 +122,15 @@ public class Tablero extends JFrame implements KeyListener {
 			setResizable(false);
 
 	}
-	@SuppressWarnings("deprecation")
+	/*@SuppressWarnings("deprecation")
+	
 	public static void main(String[] args) {
 		
+	public void tablero() {
 		Tablero tab = new Tablero();
 		tab.show();
 		
-	}
+	}*/
 
 	@Override
 	public void keyTyped(KeyEvent e) {

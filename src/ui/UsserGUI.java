@@ -53,13 +53,16 @@ public class UsserGUI {
 
 	@FXML
 	private Button bChooseAvatar;
-
-	@FXML
-	private Pane paneLevels;
+	
+    
+    
+    @FXML
+    private Pane paneLevels;
 
 	private GameZone gz;
 	private Registry registry;
 	private User user;
+	private Tablero tablero;
 	@FXML
 	private TableView<User> txScoreTV;
 
@@ -72,42 +75,37 @@ public class UsserGUI {
 	public static HashMap<String, Image> images;
 
 	@FXML
-	public void loadViewProfile(ActionEvent event) throws Exception {
+	void loadViewProfile(ActionEvent event) throws Exception {
 
-		// loadLevels(null);
+		//loadLevels(null);
 
 	}
 
 	public UsserGUI(Registry registry) {
-		images = new HashMap<>();
-		loadImages();
 		this.registry = registry;
-	}
-
-	public void loadImages() {
-		images.put("character_1",
-				new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/character_1.png"));
-		images.put("tilemap", new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/tilemap.png"));
-		images.put("fondo", new Image("file:/C:/Users/onlyg/Documents/Projects/project-bilet/imgs/fondo-Azul.png"));
+		/**user = new User(new Image("file:" + "img\\default.jpeg"), "Gevorah");
+		user.setPlayer1(new Player(new Character(0, 0, new Image("file:" + "img\\default.jpeg"), 2, 5, 5, "Any")));
+		user.setPlayer2(new Player(new Character(0, 0, new Image("file:" + "img\\level1.png"), 2, 5, 5, "Any")));
+		gz = new GameZone(user,);*/
 	}
 
 	@FXML
 	public void loadGameZone(ActionEvent event) {
-		gz = new GameZone();
-		mainPane.getChildren().clear();
-		mainPane.setCenter(gz);
-		gz.loop();
+		/**gz.manager();
+		mainpanel.setCenter(gz.getCanvas());
+		gz.gameLoop();*/
 	}
 
 	@FXML
 	public void loadLevels(ActionEvent event) throws Exception {
-
+		
+		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LevelsWindow.fxml"));
 		fxmlLoader.setController(this);
 		Parent registry = fxmlLoader.load();
 		mainPane.getChildren().clear();
 		mainPane.setCenter(registry);
-
+		
 	}
 
 	@FXML
@@ -167,7 +165,7 @@ public class UsserGUI {
 	}
 
 	@FXML
-	public void chooseAvatar(ActionEvent event) {
+	void chooseAvatar(ActionEvent event) {
 		JFileChooser choose = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("All images", "jpg", "jpeg", "png");
 		choose.setAcceptAllFileFilterUsed(false);
@@ -213,64 +211,86 @@ public class UsserGUI {
     	loadUserWindow(null);
     }
     
-	@FXML
-	public void levelFour1(ActionEvent event) {
 
-	}
+    @FXML
+    void searchUser(ActionEvent event) {
+    	
+    }
 
-	@FXML
-	public void levelFour2(ActionEvent event) {
+    
+    @FXML
+    void leveFour3(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlFour3.txt"); 
+    	tablero.setVisible(true);
+    }
 
-	}
+    @FXML
+    void levelFour1(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlFour1.txt"); 
+    	tablero.setVisible(true);
+    }
 
-	@FXML
-	public void levelFour3(ActionEvent event) {
+    @FXML
+    void levelFour2(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlFour2.txt"); 
+    	tablero.setVisible(true);
+    }
 
-	}
+    @FXML
+    void levelOne1(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlOne1.txt"); 
+    	tablero.setVisible(true);;
+    }
 
-	@FXML
-	public void levelOne1(ActionEvent event) {
+    @FXML
+    void levelOne2(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlOne2.txt"); 
+    	tablero.setVisible(true);
+    }
 
-	}
+    @FXML
+    void levelThree1(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlThree1.txt"); 
+    	tablero.setVisible(true);
+    }
 
-	@FXML
-	public void levelOne2(ActionEvent event) {
+    @FXML
+    void levelThree2(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlThree2.txt"); 
+    	tablero.setVisible(true);
+    }
 
-	}
+    @FXML
+    void levelTwo1(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlTwo1.txt"); 
+    	tablero.setVisible(true);
+    }
 
-	@FXML
-	public void levelThree1(ActionEvent event) {
+    @FXML
+    void levelTwo2(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlTwo2.txt"); 
+    	tablero.setVisible(true);
+    }
 
-	}
+    @FXML
+    void levelTwo3(ActionEvent event) {
+    	tablero = new Tablero("maps/lvlTwo3.txt"); 
+    	tablero.setVisible(true);
+    }
 
-	@FXML
-	public void levelThree2(ActionEvent event) {
+    @FXML
+    void pilot(ActionEvent event) {
+    	
 
-	}
+		tablero = new Tablero("maps/lvlPilot.txt"); 
+    	tablero.setVisible(true);
+    }
 
-	@FXML
-	public void levelTwo1(ActionEvent event) {
+    @FXML
+    void win(ActionEvent event) {
+    	tablero = new Tablero("maps/win.txt"); 
+    	tablero.setVisible(true);
+    }
 
-	}
-
-	@FXML
-	public void levelTwo2(ActionEvent event) {
-
-	}
-
-	@FXML
-	public void levelTwo3(ActionEvent event) {
-
-	}
-
-	@FXML
-	void pilot(ActionEvent event) {
-
-	}
-
-	@FXML
-	public void win(ActionEvent event) {
-
-	}
 
 }
