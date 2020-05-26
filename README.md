@@ -9,17 +9,17 @@ Instructivo
 Juego: 
 1. ejecutar el Main
 
-2 crear un user
+2. crear un user
 
-3 elegir el nivel piloto 
+3. elegir el nivel piloto 
 
-4 al finalizar se realizara una pregunta y de acuerdo a la respuesta se desblequea el siguiente nivel
+4. al finalizar se realizara una pregunta y de acuerdo a la respuesta se desblequea el siguiente nivel
 
-5 solo hay un camino para ganar 
+5. solo hay un camino para ganar 
 
-6 tu reto sera descubrir ese camino
+6. tu reto sera descubrir ese camino
 
-7 !exitos¡
+7. !exitos¡
 
 Hola usuario, a continuación verá un instructivo simple para poder revisar el proyecto:
 
