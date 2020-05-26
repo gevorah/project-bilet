@@ -1,25 +1,40 @@
 package threads;
 
-import model.TimeKeeper;
-
 public class TimeKeeperThread extends Thread {
 
 	private int time;
-	private int score;
-	private TimeKeeper tk; 
+	private boolean exit;
 
-	public TimeKeeperThread(int time, int score, TimeKeeper tk) {
-
-		this.time = time;
-		this.score = score;
-		tk= new TimeKeeper(time);
+	public TimeKeeperThread() {
+		
+		
+		time = 60;
+		
+		setDaemon(true);
 	}
 
 	public void run() {
-		
-		tk.timer();
-		score= tk.score();
-		
-		
+		exit = false;
+
+		while (!exit && time > 0) {
+			time -= 1;
+
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				System.out.println("Excepcion Hilo Contado: " + e.getMessage());
+			}
+		}
+
+		System.out.println("Sale. Tiempo ->" + time);
+	}
+
+	public int getTime() {
+		return time;
+	}
+
+	public void stopThread() {
+
+		exit = true;
 	}
 }

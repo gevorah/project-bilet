@@ -1,0 +1,1 @@
+60:lvlPilot.txt:true,90:lvlOne1.txt:false,30:lvlOne2.txt:false,10:lvlTwo3.txt:false,70:lvlTwo2.txt:false,100:lvlTwo1.txt:false,20:lvlThree2.txt:false,75:levelThree1.txt:false,15:lvlFour3.txt:false,25:lvlFour2.txt:false,80:lvlFour1.txt:false,13:win.txt:false

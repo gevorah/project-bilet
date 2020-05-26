@@ -1,19 +1,19 @@
 package model;
 
 import java.awt.Rectangle;
+import java.io.Serializable;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-import ui.GameZone;
 import ui.UsserGUI;
 
-public class Character extends Entity {
+public class Character extends Entity implements Serializable {
 	private int speed;
 	private int jump;
 	private String skill;
-	public Character(int x, int y, Image pj, int life, int speed, int jump, String skill) {
-		super(x,y,pj,life);
+	public Character(int x, int y, Image pj, int speed, int jump, String skill) {
+		super(x,y,pj);
 		this.speed=speed;
 		this.jump=jump;
 		this.skill=skill;

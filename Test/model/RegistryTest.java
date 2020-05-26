@@ -58,4 +58,12 @@ class RegistryTest {
 		assertEquals(70, r.getUsers().get(1).getScore(), "No sorted");
 		assertEquals(50, r.getUsers().get(2).getScore(), "No sorted");
 	}
+	@Test 
+	void sortTest() throws Exception {
+		setup1();
+		r.sortByNombreAtoZ();
+		assertEquals("Adam", r.getUsers().get(0).getScore(), "No sorted");
+		assertEquals("Jake", r.getUsers().get(1).getScore(), "No sorted");
+		assertEquals("Mike", r.getUsers().get(2).getScore(), "No sorted");
+	}
 }

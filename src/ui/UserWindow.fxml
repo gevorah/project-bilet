@@ -18,7 +18,7 @@
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="168.0" layoutY="291.0" mnemonicParsing="false" onAction="#loadGameZone" text="Resume Game" textFill="#030000">
+      <Button layoutX="221.0" layoutY="286.0" mnemonicParsing="false" onAction="#loadGameZone" text="Top" textFill="#030000">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
@@ -33,5 +33,6 @@
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Button>
+      <Button layoutX="363.0" layoutY="390.0" mnemonicParsing="false" onAction="#statistics" text="Statistics" />
    </children>
 </Pane>

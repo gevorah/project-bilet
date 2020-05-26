@@ -20,9 +20,9 @@ public class Enemy1Thread extends Thread {
 	public void run() {
 		
 		
-		while(true) {
+		while(principalClass.isInGame()) {
 			
-			if (principalClass.getEnemigos().getSpeed()==0) {
+			if (principalClass.getEnemigo().getDirection()==0) {
 				
 				principalClass.moverEnemigoDerecha();
 			}
@@ -33,7 +33,7 @@ public class Enemy1Thread extends Thread {
 			try {
 				Thread.sleep(300);
 			} catch (InterruptedException e) {
-				
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			

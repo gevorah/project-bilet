@@ -4,6 +4,7 @@ public class levelLockedException extends Exception {
 
 	public levelLockedException () {
 		
+		super();
 	}
 	
 }

@@ -16,7 +16,7 @@ public class GravityThread extends Thread {
 	@Override
 	public void run() {
 
-		while (true) {
+		while (principalClass.isInGame()) {
 
 			principalClass.fall();
 

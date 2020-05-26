@@ -1,17 +1,25 @@
 package model;
 
+import java.io.Serializable;
+
 import javafx.scene.image.Image;
 
-public abstract class Entity {
+public abstract class Entity implements Serializable{
 	private int x,y;
-	private Image pj;
+	private transient Image pj;
 	private int life;
-	public Entity(int x, int y, Image pj, int life) {
+	/**
+	 * @param x
+	 * @param y
+	 * @param pj
+	 * @param life
+	 */
+	public Entity(int x, int y, Image pj) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.pj = pj;
-		this.life = life;
+		
 	}
 	public int getX() {
 		return x;

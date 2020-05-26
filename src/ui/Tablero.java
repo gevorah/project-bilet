@@ -7,11 +7,15 @@ import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 import model.PrincipalClass;
+import model.PrincipalClassInterface;
 import threads.RefreshThread;
+import threads.TimeKeeperThread;
+
 
 public class Tablero extends JFrame implements KeyListener {
 
@@ -19,30 +23,57 @@ public class Tablero extends JFrame implements KeyListener {
 	 * 
 	 */
 	private RefreshThread rT ;
+	private TimeKeeperThread timeThread;
 	private static final long serialVersionUID = 1L;
-	private PrincipalClass mundo;
+	private PrincipalClassInterface mundo;
+	public static final int TIMEKEEPER=60;
+	public static final int SCORE=100;
+	
+	public PrincipalClassInterface getMundo() {
+		return mundo;
+	}
+	
+	public TimeKeeperThread getTimeThread()
+	{
+		return this.timeThread;
+	}
+
+	public void setMundo(PrincipalClass mundo) {
+		this.mundo = mundo;
+	}
+
 	private JLabel[][] mapita;
 	private JPanel panelJuego;
+	
+	private String r;
+	public String getR() {
+		return r;
+	}
 
-	public Tablero(String r) {
-		
-		
+	private UsserGUI gui;
+	
+	public Tablero(String r, UsserGUI gui) {
+		this.r = r;
+		this.gui = gui;
+		this.timeThread = new TimeKeeperThread();
 
 		mundo = new PrincipalClass(r);
 
 		mapita = new JLabel[mundo.getMatrix().length][mundo.getMatrix()[0].length];
 
-		
+
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 		addKeyListener(this);
 		
 		
 		inicializarTablero();
 		
-		rT = new RefreshThread(this);
+		rT = new RefreshThread(this,gui);
 		rT.start();
 
 	}
+
 	private void inicializarTablero() {
 
 		for (int i = 0; i < mapita.length; i++) {
@@ -120,17 +151,10 @@ public class Tablero extends JFrame implements KeyListener {
 			// No deja que se cambie el tamaño
 			
 			setResizable(false);
+			
+			timeThread.start();
 
 	}
-	/*@SuppressWarnings("deprecation")
-	
-	public static void main(String[] args) {
-		
-	public void tablero() {
-		Tablero tab = new Tablero();
-		tab.show();
-		
-	}*/
 
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -269,5 +293,50 @@ public class Tablero extends JFrame implements KeyListener {
 		
 		
 	}
+
+	public int perdio() {
+		Object[] options1 = { "Continue", "Quit" };
+		JPanel panel = new JPanel();
+		panel.add(new JLabel("Game Over"));
+		int result = JOptionPane.showOptionDialog(null, panel, "Game Over",
+        JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,
+        null, options1, null);
+		if (result == JOptionPane.YES_OPTION){
+			JOptionPane.showMessageDialog(null, "Jo");
+			reset();
+		} else {
+			this.dispose();
+		}
+		return result;
+	}
+	
+	public int gano() {
+		String data[] = mundo.getQuest().split(",");
+		Object[] options1 = { data[1], data[2] };
+		JPanel panel = new JPanel();
+		panel.add(new JLabel(data[0]));
+		int result = JOptionPane.showOptionDialog(null, panel, "Level Complete",
+        JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE,
+        null, options1, null);
+		
+		int ans = -1;
+		if (result == JOptionPane.YES_OPTION){
+			JOptionPane.showMessageDialog(null, data[3].split(":")[0]);
+			ans = Integer.parseInt(data[3].split(":")[1]);
+		} else {
+			JOptionPane.showMessageDialog(null, data[4].split(":")[0]);
+			ans = Integer.parseInt(data[4].split(":")[1]);
+		}
+		this.dispose();
+		return ans;
+	}
+	void reset(){
+		mundo = new PrincipalClass(r);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		rT = new RefreshThread(this,gui);
+		rT.start();
+	}
+	
+	
 
 }
