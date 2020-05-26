@@ -21,7 +21,9 @@
             </TableView>
             <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#loadViewProfile" text="View Profile" />
+                  <Button mnemonicParsing="false" onAction="#loadSortByScore" text="Sort by score" />
+                  <Button mnemonicParsing="false" onAction="#loadSortByName" text="Sort by name" />
+                  <Button mnemonicParsing="false" onAction="#loadSortSandN" text="Sort by Score&amp;Name" />
                   <Button mnemonicParsing="false" onAction="#loadUserWindow" text="Back" />
                </children>
             </HBox>

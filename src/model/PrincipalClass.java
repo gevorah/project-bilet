@@ -18,7 +18,7 @@ public class PrincipalClass implements PrincipalClassInterface{
 
 	private int[][] matrix;
 
-	private EnemyInterface enemigo;
+	private LinkedList enemigos;
 
 	private String archiveR;
 
@@ -28,7 +28,6 @@ public class PrincipalClass implements PrincipalClassInterface{
 
 
 	
-	private Story storyLine;
 	private String quest;
 
 	private boolean inGame;
@@ -43,10 +42,9 @@ public class PrincipalClass implements PrincipalClassInterface{
 	}
 
 	public PrincipalClass(String r) {
-
+		enemigos = new LinkedList();
 		archiveR = r;
 		archiveS = "data/selection.txt";
-		storyLine = new Story();
 		loadMap();
 		loadQuest();
 		inGame = true;
@@ -130,8 +128,8 @@ public class PrincipalClass implements PrincipalClassInterface{
 						Character temp = new Character(i, j, null, 0, 0, "");
 						jugador1 = new Player(temp);
 					} else if (objeto == 6) {
-
-						enemigo = new Enemy(i, j, null, 0, 0);
+						
+						enemigos.add(new Enemy(i, j, null, 0, 0));
 
 					}
 
@@ -266,21 +264,21 @@ public class PrincipalClass implements PrincipalClassInterface{
 	@Override
 	public void moverEnemigoDerecha() {
 
-		if (enemigo.getY() - 1 >= 0) {
+		if (enemigos.find(0).getEnemi().getY() - 1 >= 0) {
 
-			if (matrix[enemigo.getX()][enemigo.getY() - 1] == 2) {
+			if (matrix[enemigos.find(0).getEnemi().getX()][enemigos.find(0).getEnemi().getY() - 1] == 2) {
 				gameOver = true;
 			}
 
-			else if (matrix[enemigo.getX()][enemigo.getY() - 1] == 3) {
+			else if (matrix[enemigos.find(0).getEnemi().getX()][enemigos.find(0).getEnemi().getY() - 1] == 3) {
 
-				matrix[enemigo.getX()][enemigo.getY()] = 3;
-				matrix[enemigo.getX()][enemigo.getY() - 1] = 6;
-				enemigo.setY(enemigo.getY() - 1);
+				matrix[enemigos.find(0).getEnemi().getX()][enemigos.find(0).getEnemi().getY()] = 3;
+				matrix[enemigos.find(0).getEnemi().getX()][enemigos.find(0).getEnemi().getY() - 1] = 6;
+				enemigos.find(0).getEnemi().setY(enemigos.find(0).getEnemi().getY() - 1);
 			}
 
-			else if (matrix[enemigo.getX()][enemigo.getY() - 1] != 3) {
-				enemigo.setDirection(1);
+			else if (matrix[enemigos.find(0).getEnemi().getX()][enemigos.find(0).getEnemi().getY() - 1] != 3) {
+				enemigos.find(0).getEnemi().setDirection(1);
 			}
 		}
 	}
@@ -288,33 +286,33 @@ public class PrincipalClass implements PrincipalClassInterface{
 	@Override
 	public void moverEnemigoIzquierda() {
 
-		if (enemigo.getY() + 1 <= matrix[0].length) {
+		if (enemigos.find(0).getEnemi().getY() + 1 <= matrix[0].length) {
 
-			if (matrix[enemigo.getX()][enemigo.getY() + 1] == 2) {
+			if (matrix[enemigos.find(0).getEnemi().getX()][enemigos.find(0).getEnemi().getY() + 1] == 2) {
 
 				gameOver = true;
 
 			}
 
-			else if (matrix[enemigo.getX()][enemigo.getY() + 1] == 3) {
+			else if (matrix[enemigos.find(0).getEnemi().getX()][enemigos.find(0).getEnemi().getY() + 1] == 3) {
 
-				matrix[enemigo.getX()][enemigo.getY()] = 3;
-				matrix[enemigo.getX()][enemigo.getY() + 1] = 6;
-				enemigo.setY(enemigo.getY() + 1);
+				matrix[enemigos.find(0).getEnemi().getX()][enemigos.find(0).getEnemi().getY()] = 3;
+				matrix[enemigos.find(0).getEnemi().getX()][enemigos.find(0).getEnemi().getY() + 1] = 6;
+				enemigos.find(0).getEnemi().setY(enemigos.find(0).getEnemi().getY() + 1);
 			}
 
-			else if (matrix[enemigo.getX()][enemigo.getY() + 1] != 3) {
-				enemigo.setDirection(0);
+			else if (matrix[enemigos.find(0).getEnemi().getX()][enemigos.find(0).getEnemi().getY() + 1] != 3) {
+				enemigos.find(0).getEnemi().setDirection(0);
 			}
 		}
 	}
 
-	public EnemyInterface getEnemigo() {
-		return enemigo;
+	public LinkedList getEnemigo() {
+		return enemigos;
 	}
 
-	public void setEnemigo(Enemy enemigo) {
-		this.enemigo = enemigo;
+	public void setEnemigo(LinkedList enemigo) {
+		this.enemigos = enemigo;
 	}
 
 	public void siguienteNivel() {
@@ -334,6 +332,14 @@ public class PrincipalClass implements PrincipalClassInterface{
 	@Override
 	public String getQuest() {
 		return quest;
+	}
+
+	public LinkedList getEnemigos() {
+		return enemigos;
+	}
+
+	public void setEnemigos(LinkedList enemigos) {
+		this.enemigos = enemigos;
 	}
 	
 }

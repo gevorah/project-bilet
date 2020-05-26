@@ -10,7 +10,6 @@ public class NodoABB {
 	public NodoABB (int score, String nickName ) {
 		this.nickName= nickName;
 		this.score= score;
-		
 	}
 
 	public String getNickName() {

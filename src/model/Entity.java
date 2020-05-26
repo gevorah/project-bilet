@@ -4,45 +4,34 @@ import java.io.Serializable;
 
 import javafx.scene.image.Image;
 
-public abstract class Entity implements Serializable{
-	private int x,y;
+public abstract class Entity extends GameOb implements Serializable{
+	
 	private transient Image pj;
-	private int life;
-	/**
-	 * @param x
-	 * @param y
-	 * @param pj
-	 * @param life
-	 */
 	public Entity(int x, int y, Image pj) {
-		super();
-		this.x = x;
-		this.y = y;
+		super(x,y);
 		this.pj = pj;
 		
 	}
+	@Override
 	public int getX() {
-		return x;
+		return super.getX();
 	}
+	@Override
 	public void setX(int x) {
-		this.x = x;
+		super.setX(x);
 	}
+	@Override
 	public int getY() {
-		return y;
+		return super.getY();
 	}
+	@Override
 	public void setY(int y) {
-		this.y = y;
+		super.setY(y);
 	}
 	public Image getPj() {
 		return pj;
 	}
 	public void setPj(Image pj) {
 		this.pj = pj;
-	}
-	public int getLife() {
-		return life;
-	}
-	public void setLife(int life) {
-		this.life = life;
 	}
 }

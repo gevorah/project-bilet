@@ -50,6 +50,7 @@ import model.Player;
 import model.Registry;
 import model.Story;
 import model.Top;
+import model.TopInterface;
 import model.User;
 import threads.TimeKeeperThread;
 
@@ -84,10 +85,11 @@ public class UsserGUI {
     private Label information;
 
 	private Registry registry;
-	private User user;
 	private Tablero tablero;
 	private TimeKeeperThread tk;
-	private Top top;
+	private TopInterface top;
+	private boolean sortedByName = false;
+	private boolean sortedByScore = false;
 	@FXML
 	private TableView<User> txScoreTV;
 
@@ -100,21 +102,55 @@ public class UsserGUI {
 	public static HashMap<String, Image> images;
 
 	@FXML
-	void loadViewProfile(ActionEvent event) throws Exception {
+	void loadSortSandN(ActionEvent event) {
+		
+		registry.sortByScoreNick();
+		
+		initializeScores();
 
-		//loadLevels(null);
 
+	
 	}
+	@FXML
+	void loadSortByName(ActionEvent event) {
+		
+		if(!sortedByName) {
+			
+		sortedByName = true;
+		registry.sortByNombreAtoZ();
+		}else {
+			sortedByName = false;
+			
+			registry.sortByNombreZtoA();
+		}
+		initializeScores();
 
-	public UsserGUI() {
+
+	
 	}
+	@FXML
+	void loadSortByScore(ActionEvent event) {
+		
+		if(!sortedByScore) {
+			
+		sortedByScore= true;
+		registry.ordenarPuntajeMaxToMin();
+		}else {
+			sortedByScore= false;
+			registry.ordernarPuntajeMinToMax();
+		}
+		
+		initializeScores();
+
+
+	
+	}
+	
+	
 	
 	public UsserGUI(Registry registry) {
 		this.registry = registry;
-		/**user = new User(new Image("file:" + "img\\default.jpeg"), "Gevorah");
-		user.setPlayer1(new Player(new Character(0, 0, new Image("file:" + "img\\default.jpeg"), 2, 5, 5, "Any")));
-		user.setPlayer2(new Player(new Character(0, 0, new Image("file:" + "img\\level1.png"), 2, 5, 5, "Any")));
-		gz = new GameZone(user,);*/
+		top = new Top();
 	}
 	
 	public void setRegistry(Registry registry)
@@ -123,11 +159,21 @@ public class UsserGUI {
 	}
 
 	@FXML
-	public void loadGameZone(ActionEvent event) {
-	    String topLevl;
+	public void loadGameZone(ActionEvent event) throws Exception {
+	    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("top.fxml"));
+		fxmlLoader.setController(this);
+		Parent registry = fxmlLoader.load();
+		mainPane.getChildren().clear();
+		
+		mainPane.setCenter(registry);
 	    
-	    topLevl= top.recorridoInorden();
-	    information.setText(topLevl);
+	    
+	    if (top.recorridoInorden().equals("")) {
+	    	information.setText("Vacío");
+	    }else {	
+	     information.setText(top.recorridoInorden());	
+	    
+	    }
 	}
 
 	@FXML
@@ -253,7 +299,14 @@ public class UsserGUI {
     
 
     @FXML
-    void searchUser(ActionEvent event) {
+    void searchUser(ActionEvent event) throws IOException {
+    	
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("searchUser.fxml"));
+		fxmlLoader.setController(this);
+		Parent registry = fxmlLoader.load();
+		mainPane.getChildren().clear();
+		
+		mainPane.setCenter(registry);
     	
     }
 
@@ -409,6 +462,8 @@ public class UsserGUI {
     		//user.setScore(score);
     		ArrayList<User> usuariosTmp = registry.getUsers();
     		usuariosTmp.get(usuariosTmp.size()-1).setScore(score);
+    		System.out.println(level);
+    		top.add(score, usuariosTmp.get(usuariosTmp.size()-1).getNickname());
     		switch (level) {
 			case "lvlPilot.txt":
 				if(op==0) usuariosTmp.get(usuariosTmp.size()-1).getStoryLine().modify(Story.LVLONE1,true);
@@ -426,6 +481,7 @@ public class UsserGUI {
 				break;
 			case "lvlTwo3.txt":
 				usuariosTmp.get(usuariosTmp.size()-1).getStoryLine().modify(Story.LVLTHREE2,true);
+				System.out.println(usuariosTmp.get(usuariosTmp.size()-1).getStoryLine().search(Story.LVLTHREE2).isFree());
 				break;
 			case "lvlThree1.txt":
 				usuariosTmp.get(usuariosTmp.size()-1).getStoryLine().modify(Story.LVLFOUR1,true);
@@ -489,4 +545,29 @@ public class UsserGUI {
 
     @FXML
     private Button bLvl43;
+    
+
+    @FXML
+    private TextField txtByName;
+
+    @FXML
+    private TextField txtByScore;
+    
+    @FXML
+    private Label laUser;
+
+    @FXML
+    void searchs(ActionEvent event) throws Exception {
+    	
+    	String name=txtByName.getText();
+    	String score=txtByScore.getText();
+    	
+    	if(name.equals("")) {
+    		int value=Integer.parseInt(score);
+    		laUser.setText(registry.binarySearchByScore(value));
+    	}
+    	else if(score.equals("")) {
+    		laUser.setText(registry.binarySearchByName(name));
+    	}
+    }
 }

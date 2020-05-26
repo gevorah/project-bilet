@@ -22,7 +22,7 @@ public class TimeKeeperThread extends Thread {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				System.out.println("Excepcion Hilo Contado: " + e.getMessage());
+				System.out.println("Excepcion Hilo Cortado: " + e.getMessage());
 			}
 		}
 

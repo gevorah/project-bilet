@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
+import customExceptions.NoFoundException;
 import customExceptions.RepeatUserException;
 import customExceptions.invalidInformationException;
 import javafx.scene.image.Image;
@@ -96,22 +97,25 @@ public class Registry implements Serializable {
 	}
 
 	public void addUser(Image avatar, String nickname) throws invalidInformationException, RepeatUserException {
+		try {
+			findUser(nickname);
+		} catch(NoFoundException e) {
+			if (!nickname.trim().equals("")) {
+				try {
+					users.add(new User(avatar, nickname));
+				} catch (Exception f) {
+					f.printStackTrace();
+				}
+			} else {
+				throw new invalidInformationException();
 
-		findUser(nickname);
-
-		if (!nickname.trim().equals("")) {
-			try {
-				users.add(new User(avatar, nickname));
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
-		} else {
-			throw new invalidInformationException();
 		}
 	}
 
-	public void findUser(String name) throws RepeatUserException {
+	public void findUser(String name) throws RepeatUserException, NoFoundException {
 	 
+	  
 	  for (int i = 0; i < users.size(); i++) { 
 		  
 	  
@@ -119,7 +123,10 @@ public class Registry implements Serializable {
 	  
 			  throw new RepeatUserException();
 		  } 
+		  
 	  }
+	  
+	  throw new NoFoundException ();
 	}  
 
 	
@@ -222,16 +229,17 @@ public class Registry implements Serializable {
 	}
 	
 	public void sortByScoreNick() {
+		
 		Comparator<User> cu = new Comparator<User>(){
 			@Override
 			public int compare(User o1, User o2) {
 				if(o1.getScore()==o2.getScore()) {
-					if (o1.getNickname().equals(o2.getNickname()))		
+					if (o1.getNickname().equals(o2.getNickname()))
 						return 0;
 					else if (o1.getNickname().compareTo(o2.getNickname())<0) 
-						return 1;
-					else 
 						return -1;
+					else 
+						return 1;
 				} else if(o1.getScore()<o2.getScore()) {
 					return 1;
 				} else
@@ -244,17 +252,18 @@ public class Registry implements Serializable {
 	public static void main(String[] args) throws Exception {
 		Registry r = new Registry();
 		r.addUser(null, "Jack");
-		r.users.get(0).setScore(10);
+		r.getUsers().get(0).setScore(100);
 		r.addUser(null, "Mike");
-
-		r.users.get(1).setScore(100);
+		r.getUsers().get(1).setScore(50);
 		r.addUser(null, "Adam");
-
-		r.users.get(2).setScore(20);
-		//r.sortByNombreAtoZ();
-		//System.out.println(r.users.get(0).getNickname());
+		r.getUsers().get(2).setScore(70);
+		r.addUser(null, "Fer");
+		r.getUsers().get(3).setScore(50);
+		r.sortByScoreNick();
+		System.out.println(r.users.get(1).getNickname());
 		
-		System.out.println(r.binarySearchByName("Jack"));
+		//System.out.println(r.binarySearchByName("Jack"));
+		//System.out.println(r.binarySearchByScore(100));
 		
 	}
 	
@@ -265,7 +274,7 @@ public class Registry implements Serializable {
 		
 		User tmp=new User(null, name);
 			int min = 0;
-			int max = users.size();
+			int max = users.size()-1;
 			String user="";
 			while (min <= max && user.equals("")) {
 
@@ -278,9 +287,35 @@ public class Registry implements Serializable {
 				} else if (users.get(m).compareTo(tmp) ==-1) {
 					min = m + 1;
 				}
+			} if(user.equals("")) {
+				user= "user not found";
 			}
 
 			return user;
 		}
+	public String binarySearchByScore(int score) {
+		ordernarPuntajeMinToMax ();
+		
+		int min = 0;
+		int max = users.size()-1;
+		String user="";
+		while (min <= max && user.equals("")) {
+
+			int m = (min + max) / 2;
+
+			if ((int)users.get(m).getScore() == score) {
+				user= users.get(m).getNickname() + " , puntaje: "+ users.get(m).getScore()+".";
+			} else if ((int)users.get(m).getScore() >score) {
+				max = m - 1;
+			} else if ((int)users.get(m).getScore()<score) {
+				min = m + 1;
+			}
+		} if(user.equals("")) {
+			user= "user not found";
+		}
+
+		return user;
+	}
+
 	
 }

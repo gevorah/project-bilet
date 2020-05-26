@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class EnemyTest {
 
 	@Test
-	void test() {
+	public void test() {
 		Enemy pj = new Enemy(0, 0, null, 1, 1);
 		assertEquals(0, pj.getX(), "Incorrect value of X");
 		assertEquals(0, pj.getY(), "Incorrect value of Y");;

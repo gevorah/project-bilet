@@ -1,6 +1,6 @@
 package model;
 
-public class Top {
+public class Top implements TopInterface {
 
 	private NodoABB root;
 	private String ordenado;
@@ -8,12 +8,14 @@ public class Top {
 	public Top() {
 
 	}
-
+	
+	@Override
 	public void add(int value, String data) {
 		root = add(root, value, data);
 	}
-
-	private NodoABB add(NodoABB current, int value, String data) {
+	
+	@Override
+	public NodoABB add(NodoABB current, int value, String data) {
 		if (current == null)
 			return new NodoABB(value, data);
 		if (value < current.getScore()) {
@@ -30,7 +32,7 @@ public class Top {
 		return recursiveSearch(root, value);
 	}
 
-	private NodoABB recursiveSearch(NodoABB current, int value) {
+	public NodoABB recursiveSearch(NodoABB current, int value) {
 		if (current == null)
 			return null;
 		if (current.getScore() == value)
@@ -38,19 +40,21 @@ public class Top {
 		return current.getScore() > value ? recursiveSearch(current.getLeft(), value)
 				: recursiveSearch(current.getRight(), value);
 	}
-
+	@Override
 	public String recorridoInorden() {
 		ordenado = "";
 		ayudanteInorden(root);
 		return ordenado;
 	}
-
-	private void ayudanteInorden(NodoABB nodo) {
-		if (nodo == null)
+	@Override
+	public void ayudanteInorden(NodoABB nodo) {
+		if (nodo == null) {
+			
 			return;
-
+		}else {
 		ayudanteInorden(nodo.getLeft());
 		ordenado += nodo.getNickName() + nodo.getScore() + " \n";
 		ayudanteInorden(nodo.getRight());
+		}
 	}
 }

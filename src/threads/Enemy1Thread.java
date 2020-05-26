@@ -22,7 +22,7 @@ public class Enemy1Thread extends Thread {
 		
 		while(principalClass.isInGame()) {
 			
-			if (principalClass.getEnemigo().getDirection()==0) {
+			if (principalClass.getEnemigo().find(0).getEnemi().getDirection()==0) {
 				
 				principalClass.moverEnemigoDerecha();
 			}

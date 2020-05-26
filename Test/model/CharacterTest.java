@@ -11,9 +11,9 @@ class CharacterTest {
 		Character pj = new Character(0, 0, null, 10, 10, "Jump");
 		assertEquals(0, pj.getX(), "Incorrect value of X");
 		assertEquals(0, pj.getY(), "Incorrect value of Y");
-		assertEquals(10, pj.getLife(), "Incorrect lifes");
 		assertEquals(10, pj.getSpeed(), "Incorrect speed");
 		assertEquals(16, pj.getJump(), "Incorrect jump");
+		assertEquals(10, pj.getSkill(), "Incorrect skill");
 	}
 
 }
