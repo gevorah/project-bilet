@@ -34,7 +34,4 @@ Flecha izquierda: Desplaza el personaje 1 casilla hacia la izquierda
 Flecho Derecha: Desplaza el personaje 1 casilla hacia la derecha.
 
 
-Truco y recomendacion: 
 
-En el juego existe la mecanica del "Air Jump", esta consiste en que usted puede saltar en todo momento siempre y cuando, entre saltos, haya tocado 
-una casilla de suelo, aproveche el poder saltar en caidas para llegar a lugares que parecen imposibles
