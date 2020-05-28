@@ -4,6 +4,17 @@ En la parte de los commits de la ultima entrega tuvimos algunos inconvenientes y
 con la aplicacion de codigo compartido Saros, entonces al momento de hacer los commits lo que subia
 una persona llevaba cambios y partes trabajadas por los otros. 
 
+Índice:
+
+Etapa de ánalisis:
+https://drive.google.com/file/d/1a6G73KYsi8Vy33xc8Z6000WFn_7ANT6n/view?usp=sharing
+
+Etapa de diseño:
+https://drive.google.com/file/d/1H8UOoHgJhd1hNDnbKXf2BCgsGfY49FP3/view?usp=sharing
+
+Etapa de presentación: 
+https://youtu.be/rVxOqi9pP8A
+
 Instructivo 
 
 Juego: 
@@ -39,6 +50,4 @@ Teclas clave:
 Flecha arriba: Hace saltar el personaje 3 casillas hacia arriba
 Flecha izquierda: Desplaza el personaje 1 casilla hacia la izquierda
 Flecho Derecha: Desplaza el personaje 1 casilla hacia la derecha.
-
-
 
