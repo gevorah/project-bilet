@@ -1,8 +1,4 @@
 # project-bilet
-Profesor Juan Manuel Reyes 
-En la parte de los commits de la ultima entrega tuvimos algunos inconvenientes ya que trabajamos 
-con la aplicacion de codigo compartido Saros, entonces al momento de hacer los commits lo que subia
-una persona llevaba cambios y partes trabajadas por los otros. 
 
 Índice:
 
